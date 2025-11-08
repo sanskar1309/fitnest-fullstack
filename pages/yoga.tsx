@@ -95,7 +95,14 @@ export default function Yoga() {
                 }`}
                 onClick={() => {
                   setSelectedCategory(category);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  const posesElement = document.getElementById('poses');
+                  if (posesElement) {
+                    if (window.innerWidth >= 768) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                      posesElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
                 }}
               >
                 <CardHeader>
@@ -106,7 +113,7 @@ export default function Yoga() {
             ))}
           </div>
 
-          <div className="md:w-2/3 space-y-6">
+          <div id="poses" className="md:w-2/3 space-y-6">
             {selectedCategory ? (
               <>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">
