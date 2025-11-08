@@ -152,7 +152,7 @@ export default function Yoga() {
         </div>
 
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="w-[90vw] sm:w-auto max-w-2xl">
             <DialogHeader>
               <DialogTitle>{modalData?.english_name}</DialogTitle>
               <DialogDescription>
