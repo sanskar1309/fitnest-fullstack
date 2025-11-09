@@ -1,0 +1,72 @@
+{
+  "moods": [
+    {
+      "mood": "Anxiety",
+      "description": "Ground yourself and ease anxious thoughts.",
+      "recommended_practices": [
+        101,
+        102,
+        301,
+        501
+      ]
+    },
+    {
+      "mood": "Stress",
+      "description": "Release tension and restore calmness.",
+      "recommended_practices": [
+        102,
+        301,
+        401
+      ]
+    },
+    {
+      "mood": "Focus",
+      "description": "Sharpen concentration and stay in the present.",
+      "recommended_practices": [
+        101,
+        401,
+        1101
+      ]
+    },
+    {
+      "mood": "Sleep",
+      "description": "Relax body and mind for restful sleep.",
+      "recommended_practices": [
+        801,
+        802
+      ]
+    },
+    {
+      "mood": "Self-Love",
+      "description": "Nurture compassion and self-acceptance.",
+      "recommended_practices": [
+        201,
+        202
+      ]
+    },
+    {
+      "mood": "Motivation",
+      "description": "Energize your mind and renew purpose.",
+      "recommended_practices": [
+        701,
+        1102
+      ]
+    },
+    {
+      "mood": "Emotional Balance",
+      "description": "Find stability through mindful awareness.",
+      "recommended_practices": [
+        101,
+        1201
+      ]
+    },
+    {
+      "mood": "Spiritual Growth",
+      "description": "Connect deeper with self and consciousness.",
+      "recommended_practices": [
+        901,
+        1202
+      ]
+    }
+  ]
+}

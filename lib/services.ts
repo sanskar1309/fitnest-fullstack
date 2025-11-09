@@ -9,7 +9,8 @@ const baseURL = {
   poses: "https://holistic-health-buddy.vercel.app/api/v1/poses",
   "pose-by-id": "https://holistic-health-buddy.vercel.app/api/v1/poses?id=value",
   "pose-by-name": "https://holistic-health-buddy.vercel.app/api/v1/poses?name=value",
-  "poses-by-level": "https://holistic-health-buddy.vercel.app/api/v1/poses?level=beginner"
+  "poses-by-level": "https://holistic-health-buddy.vercel.app/api/v1/poses?level=beginner",
+  meditation: "https://holistic-health-buddy.vercel.app/api/v1/meditation"
 }
 
 interface Pose {
@@ -42,6 +43,37 @@ interface TransitivePose {
 
 interface CategoryWithTransitive extends Category {
   transitive_poses: TransitivePose[]
+}
+
+interface MeditationCategory {
+  id: number
+  name: string
+  slug: string
+  description: string
+  tags: string[]
+  practices: MeditationPractice[]
+}
+
+interface MeditationPractice {
+  id: number
+  title: string
+  difficulty: string
+  benefits: string[]
+  description: string
+  steps: string[]
+  affirmation: string
+  duration: string
+  environment: string
+  audio_url: string
+  video_url: string
+  tags: string[]
+}
+
+interface Mood {
+  id: number
+  mood: string
+  description: string
+  recommended_practices: number[]
 }
 
 export async function getBaseURL() {
@@ -189,4 +221,27 @@ export async function getPosesByLevel(level: string): Promise<Pose[]> {
     ...pose,
     difficulty_level: pose.transitive_poses[0]?.difficulty.difficulty_level
   })) || []
+}
+
+export async function getMeditation(): Promise<MeditationCategory[]> {
+  const { data, error } = await supabase
+    .from('meditation_categories')
+    .select(`
+      *,
+      practices: meditation_practices (*)
+    `)
+
+  if (error) throw error
+
+  return (data as MeditationCategory[]) || []
+}
+
+export async function getMoods(): Promise<Mood[]> {
+  const { data, error } = await supabase
+    .from('moods')
+    .select('*')
+
+  if (error) throw error
+
+  return (data as Mood[]) || []
 }

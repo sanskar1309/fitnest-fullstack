@@ -1,0 +1,859 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-08",
+  "project": "MindEase Meditation",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mindfulness Meditation",
+      "slug": "mindfulness",
+      "description": "Cultivate awareness of the present moment by observing thoughts, sensations, and emotions without judgment.",
+      "tags": [
+        "focus",
+        "awareness",
+        "calm"
+      ],
+      "practices": [
+        {
+          "id": 101,
+          "title": "Breath Awareness",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Enhances focus and awareness",
+            "Reduces anxiety and stress",
+            "Improves emotional regulation"
+          ],
+          "description": "A practice that develops mindfulness by observing the natural flow of breath, fostering calmness and presence.",
+          "steps": [
+            "Choose a comfortable seated position and allow the body to relax.",
+            "Notice the natural rhythm of each inhale and exhale without changing it.",
+            "When distractions arise, acknowledge them and gently return focus to breathing."
+          ],
+          "affirmation": "Each breath grounds me in the present moment.",
+          "duration": "5–10 minutes",
+          "environment": "Quiet seated space",
+          "audio_url": "https://cdn.example.com/meditations/audio/mindfulness-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mindfulness-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mindfulness-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mindfulness-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mindfulness-1_alt.svg",
+          "tags": [
+            "focus",
+            "awareness",
+            "calm"
+          ]
+        },
+        {
+          "id": 102,
+          "title": "Body Scan",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Promotes physical relaxation",
+            "Improves body awareness",
+            "Reduces stress and restlessness"
+          ],
+          "description": "This technique increases body awareness by slowly observing sensations from head to toe, helping to release physical tension.",
+          "steps": [
+            "Lie down or sit upright with eyes closed.",
+            "Bring awareness to the top of the head and move slowly through each part of the body.",
+            "Notice sensations objectively, without trying to alter them."
+          ],
+          "affirmation": "I feel connected and relaxed throughout my body.",
+          "duration": "10–15 minutes",
+          "environment": "Quiet room",
+          "audio_url": "https://cdn.example.com/meditations/audio/mindfulness-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mindfulness-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mindfulness-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mindfulness-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mindfulness-2_alt.svg",
+          "tags": [
+            "focus",
+            "awareness",
+            "calm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Loving-Kindness Meditation",
+      "slug": "loving-kindness",
+      "description": "Develop compassion and positive emotions toward yourself and others using intentional loving phrases.",
+      "tags": [
+        "compassion",
+        "empathy",
+        "gratitude"
+      ],
+      "practices": [
+        {
+          "id": 201,
+          "title": "Traditional Loving-Kindness",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Increases empathy and compassion",
+            "Enhances positive emotions",
+            "Reduces anger and resentment"
+          ],
+          "description": "A meditation focused on cultivating kindness and compassion for oneself and others through repeated positive phrases.",
+          "steps": [
+            "Sit comfortably and bring someone you care for to mind.",
+            "Repeat gentle phrases such as ‘May you be happy, may you be peaceful.’",
+            "Extend these wishes to yourself and then all beings."
+          ],
+          "affirmation": "May kindness flow from me to all living beings.",
+          "duration": "10–15 minutes",
+          "environment": "Comfortable sitting posture",
+          "audio_url": "https://cdn.example.com/meditations/audio/loving-kindness-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/loving-kindness-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/loving-kindness-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/loving-kindness-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/loving-kindness-1_alt.svg",
+          "tags": [
+            "compassion",
+            "empathy",
+            "gratitude"
+          ]
+        },
+        {
+          "id": 202,
+          "title": "Self-Compassion Practice",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Reduces self-criticism",
+            "Supports emotional healing",
+            "Builds self-respect"
+          ],
+          "description": "This meditation encourages self-acceptance and understanding by directing warmth and patience toward oneself.",
+          "steps": [
+            "Sit quietly and acknowledge your current emotions.",
+            "Silently repeat comforting phrases directed to yourself.",
+            "End by recognizing your worth and capacity for growth."
+          ],
+          "affirmation": "I treat myself with patience and understanding.",
+          "duration": "10–20 minutes",
+          "environment": "Quiet setting",
+          "audio_url": "https://cdn.example.com/meditations/audio/loving-kindness-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/loving-kindness-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/loving-kindness-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/loving-kindness-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/loving-kindness-2_alt.svg",
+          "tags": [
+            "compassion",
+            "empathy",
+            "gratitude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Guided Visualization",
+      "slug": "guided-visualization",
+      "description": "Use detailed mental imagery to evoke calm, clarity, and positive emotion.",
+      "tags": [
+        "creativity",
+        "relaxation",
+        "peace"
+      ],
+      "practices": [
+        {
+          "id": 301,
+          "title": "Practice 3A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Eases anxiety",
+            "Encourages creativity",
+            "Enhances relaxation response"
+          ],
+          "description": "This visualization helps to create a sense of safety and relaxation through positive imagery.",
+          "steps": [
+            "Find a quiet space and close your eyes.",
+            "Visualize a peaceful scene such as a beach or forest with vivid detail.",
+            "Immerse yourself in the sounds and sensations of the environment."
+          ],
+          "affirmation": "My mind creates calm and peaceful spaces.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/guided-visualization-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/guided-visualization-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/guided-visualization-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/guided-visualization-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/guided-visualization-1_alt.svg",
+          "tags": [
+            "creativity",
+            "relaxation",
+            "peace"
+          ]
+        },
+        {
+          "id": 302,
+          "title": "Practice 3B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Builds confidence",
+            "Improves focus",
+            "Supports emotional regulation"
+          ],
+          "description": "A visualization that focuses on manifesting positive emotions and confidence through mental imagery.",
+          "steps": [
+            "Choose an image that represents strength or joy.",
+            "Visualize yourself embodying this feeling completely.",
+            "Stay present with the emotion for a few breaths before returning to awareness."
+          ],
+          "affirmation": "I visualize confidence and strength within me.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/guided-visualization-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/guided-visualization-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/guided-visualization-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/guided-visualization-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/guided-visualization-2_alt.svg",
+          "tags": [
+            "creativity",
+            "relaxation",
+            "peace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Mantra Meditation",
+      "slug": "mantra",
+      "description": "Focus your mind by repeating a word, sound, or phrase to anchor awareness.",
+      "tags": [
+        "focus",
+        "clarity",
+        "sound"
+      ],
+      "practices": [
+        {
+          "id": 401,
+          "title": "Practice 4A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Improves concentration",
+            "Encourages mental clarity",
+            "Calms restless thoughts"
+          ],
+          "description": "A mantra repetition technique used to focus the mind and reduce distraction.",
+          "steps": [
+            "Select a simple phrase or sound that feels meaningful.",
+            "Repeat it silently or aloud in rhythm with your breath.",
+            "Return to the mantra whenever thoughts drift away."
+          ],
+          "affirmation": "Repetition brings stillness to my mind.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/mantra-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mantra-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mantra-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mantra-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mantra-1_alt.svg",
+          "tags": [
+            "focus",
+            "clarity",
+            "sound"
+          ]
+        },
+        {
+          "id": 402,
+          "title": "Practice 4B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Reduces stress",
+            "Improves focus",
+            "Cultivates inner balance"
+          ],
+          "description": "This practice uses sound or words to quiet mental noise and increase mindfulness.",
+          "steps": [
+            "Find a comfortable seated position.",
+            "Repeat a chosen mantra softly, aligning it with your breathing.",
+            "Allow the vibration and rhythm to calm your awareness."
+          ],
+          "affirmation": "My focus deepens with each repetition.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/mantra-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mantra-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mantra-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mantra-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mantra-2_alt.svg",
+          "tags": [
+            "focus",
+            "clarity",
+            "sound"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Movement Meditation",
+      "slug": "movement",
+      "description": "Combine mindful movement with awareness of breath and body sensations.",
+      "tags": [
+        "energy",
+        "flow",
+        "awareness"
+      ],
+      "practices": [
+        {
+          "id": 501,
+          "title": "Practice 5A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Improves grounding",
+            "Enhances balance and focus",
+            "Calms the body and mind"
+          ],
+          "description": "A walking meditation that builds mindfulness through movement and sensory awareness.",
+          "steps": [
+            "Walk slowly in a safe, quiet space.",
+            "Pay attention to each step and how the feet make contact with the ground.",
+            "Maintain steady breathing while observing body sensations."
+          ],
+          "affirmation": "Each step connects me to the present moment.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/movement-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/movement-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/movement-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/movement-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/movement-1_alt.svg",
+          "tags": [
+            "energy",
+            "flow",
+            "awareness"
+          ]
+        },
+        {
+          "id": 502,
+          "title": "Practice 5B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Relieves physical tension",
+            "Improves posture awareness",
+            "Encourages gentle focus"
+          ],
+          "description": "Gentle movement combined with mindfulness to improve body awareness and reduce tension.",
+          "steps": [
+            "Begin slow, deliberate stretches or motions.",
+            "Stay aware of sensations as you move.",
+            "Breathe evenly and stay attentive to physical feedback."
+          ],
+          "affirmation": "My movements flow with ease and awareness.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/movement-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/movement-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/movement-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/movement-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/movement-2_alt.svg",
+          "tags": [
+            "energy",
+            "flow",
+            "awareness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Zen Meditation (Zazen)",
+      "slug": "zen",
+      "description": "Sit in stillness, observing thoughts and sensations without attachment.",
+      "tags": [
+        "clarity",
+        "stillness",
+        "discipline"
+      ],
+      "practices": [
+        {
+          "id": 601,
+          "title": "Practice 6A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Develops patience",
+            "Fosters mental clarity",
+            "Improves discipline and focus"
+          ],
+          "description": "A seated Zen meditation emphasizing awareness of posture, breath, and mental stillness.",
+          "steps": [
+            "Sit upright with hands resting in the lap.",
+            "Bring attention to breathing or posture.",
+            "Observe thoughts as they arise without following them."
+          ],
+          "affirmation": "Stillness allows my mind to see clearly.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/zen-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/zen-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/zen-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/zen-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/zen-1_alt.svg",
+          "tags": [
+            "clarity",
+            "stillness",
+            "discipline"
+          ]
+        },
+        {
+          "id": 602,
+          "title": "Practice 6B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Promotes equanimity",
+            "Improves concentration",
+            "Encourages self-awareness"
+          ],
+          "description": "A Zen mindfulness session that cultivates calm observation without goals or judgment.",
+          "steps": [
+            "Adopt a comfortable seated posture.",
+            "Focus lightly on the breath while maintaining open awareness.",
+            "Acknowledge thoughts and sensations, letting them pass naturally."
+          ],
+          "affirmation": "Awareness deepens in silence.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/zen-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/zen-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/zen-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/zen-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/zen-2_alt.svg",
+          "tags": [
+            "clarity",
+            "stillness",
+            "discipline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Transcendental Meditation",
+      "slug": "transcendental",
+      "description": "A mantra-based technique that brings the mind to a state of restful alertness.",
+      "tags": [
+        "relaxation",
+        "clarity",
+        "energy"
+      ],
+      "practices": [
+        {
+          "id": 701,
+          "title": "Practice 7A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Reduces stress",
+            "Improves creativity and energy",
+            "Enhances clarity"
+          ],
+          "description": "A mantra-based meditation that allows the mind to settle into quiet awareness.",
+          "steps": [
+            "Sit comfortably with eyes closed.",
+            "Silently repeat your chosen mantra effortlessly.",
+            "Allow thoughts to fade as the mind becomes still."
+          ],
+          "affirmation": "I rest deeply in calm awareness.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/transcendental-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/transcendental-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/transcendental-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/transcendental-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/transcendental-1_alt.svg",
+          "tags": [
+            "relaxation",
+            "clarity",
+            "energy"
+          ]
+        },
+        {
+          "id": 702,
+          "title": "Practice 7B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Improves sleep quality",
+            "Balances energy",
+            "Supports emotional clarity"
+          ],
+          "description": "An effortless repetition of a sound or phrase that encourages relaxation and mental rest.",
+          "steps": [
+            "Choose a simple sound or syllable to repeat silently.",
+            "Focus gently on the repetition without forcing attention.",
+            "If the mind wanders, return to the mantra with ease."
+          ],
+          "affirmation": "Quiet repetition brings peace to my mind.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/transcendental-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/transcendental-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/transcendental-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/transcendental-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/transcendental-2_alt.svg",
+          "tags": [
+            "relaxation",
+            "clarity",
+            "energy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Yoga Nidra (Yogic Sleep)",
+      "slug": "yoga-nidra",
+      "description": "A guided relaxation practice between wakefulness and sleep.",
+      "tags": [
+        "sleep",
+        "relaxation",
+        "healing"
+      ],
+      "practices": [
+        {
+          "id": 801,
+          "title": "Practice 8A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Encourages deep sleep",
+            "Reduces fatigue",
+            "Releases physical tension"
+          ],
+          "description": "A guided relaxation that moves attention through the body to achieve deep rest.",
+          "steps": [
+            "Lie down and make the body comfortable.",
+            "Follow a guided awareness moving through body parts.",
+            "Rest in the calm state between wakefulness and sleep."
+          ],
+          "affirmation": "Rest and stillness renew my body and mind.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/yoga-nidra-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/yoga-nidra-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/yoga-nidra-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/yoga-nidra-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/yoga-nidra-1_alt.svg",
+          "tags": [
+            "sleep",
+            "relaxation",
+            "healing"
+          ]
+        },
+        {
+          "id": 802,
+          "title": "Practice 8B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Improves relaxation response",
+            "Releases emotional tension",
+            "Supports nervous system balance"
+          ],
+          "description": "A deep relaxation meditation designed to reset the nervous system and promote recovery.",
+          "steps": [
+            "Lie comfortably on your back.",
+            "Listen to the guidance moving awareness across the body.",
+            "Allow yourself to stay awake yet deeply relaxed."
+          ],
+          "affirmation": "Calmness restores my inner balance.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/yoga-nidra-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/yoga-nidra-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/yoga-nidra-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/yoga-nidra-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/yoga-nidra-2_alt.svg",
+          "tags": [
+            "sleep",
+            "relaxation",
+            "healing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Chakra Meditation",
+      "slug": "chakra",
+      "description": "Focus on the body's energy centers to balance and restore flow.",
+      "tags": [
+        "energy",
+        "balance",
+        "awareness"
+      ],
+      "practices": [
+        {
+          "id": 901,
+          "title": "Practice 9A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Balances energy flow",
+            "Improves self-awareness",
+            "Enhances emotional harmony"
+          ],
+          "description": "A meditation that balances the body's energy centers through visualization and attention.",
+          "steps": [
+            "Sit upright and bring awareness to the base of the spine.",
+            "Visualize each chakra with its color while breathing steadily.",
+            "End by imagining energy flowing freely through the body."
+          ],
+          "affirmation": "My energy is balanced and aligned.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/chakra-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/chakra-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/chakra-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/chakra-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/chakra-1_alt.svg",
+          "tags": [
+            "energy",
+            "balance",
+            "awareness"
+          ]
+        },
+        {
+          "id": 902,
+          "title": "Practice 9B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Increases vitality",
+            "Improves focus",
+            "Promotes emotional balance"
+          ],
+          "description": "A visualization that focuses on activating specific chakras for vitality and focus.",
+          "steps": [
+            "Visualize the energy centers along your spine.",
+            "Breathe deeply while concentrating on each chakra’s color.",
+            "Finish with a feeling of openness and balance."
+          ],
+          "affirmation": "Energy moves freely through me.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/chakra-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/chakra-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/chakra-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/chakra-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/chakra-2_alt.svg",
+          "tags": [
+            "energy",
+            "balance",
+            "awareness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Sound Meditation",
+      "slug": "sound",
+      "description": "Use soothing sounds and frequencies to calm the nervous system.",
+      "tags": [
+        "peace",
+        "vibration",
+        "focus"
+      ],
+      "practices": [
+        {
+          "id": 1001,
+          "title": "Practice 10A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Promotes deep relaxation",
+            "Improves mood",
+            "Enhances auditory awareness"
+          ],
+          "description": "This meditation uses sound frequencies to calm the nervous system and encourage mindfulness.",
+          "steps": [
+            "Sit or lie comfortably and listen to calming tones or gongs.",
+            "Focus on the vibrations as they resonate through the body.",
+            "Allow sound to guide you into stillness."
+          ],
+          "affirmation": "I am attuned to peace through sound.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/sound-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/sound-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/sound-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/sound-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/sound-1_alt.svg",
+          "tags": [
+            "peace",
+            "vibration",
+            "focus"
+          ]
+        },
+        {
+          "id": 1002,
+          "title": "Practice 10B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Improves concentration",
+            "Reduces stress",
+            "Encourages sensory mindfulness"
+          ],
+          "description": "A mindful listening practice that helps cultivate focus through sound awareness.",
+          "steps": [
+            "Listen to ambient sounds or music with full attention.",
+            "Notice variations in pitch, tone, and rhythm.",
+            "Maintain awareness of sound without judgment."
+          ],
+          "affirmation": "Each sound reminds me to stay present.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/sound-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/sound-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/sound-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/sound-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/sound-2_alt.svg",
+          "tags": [
+            "peace",
+            "vibration",
+            "focus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Breathwork (Pranayama)",
+      "slug": "breathwork",
+      "description": "Controlled breathing exercises that balance body and mind.",
+      "tags": [
+        "balance",
+        "focus",
+        "energy"
+      ],
+      "practices": [
+        {
+          "id": 1101,
+          "title": "Practice 11A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Improves oxygen flow",
+            "Increases alertness",
+            "Balances emotions"
+          ],
+          "description": "A conscious breathing exercise that enhances energy and calms the mind.",
+          "steps": [
+            "Sit comfortably with an upright spine.",
+            "Inhale deeply through the nose and exhale through the mouth.",
+            "Maintain a steady rhythm for several minutes."
+          ],
+          "affirmation": "Breath brings balance and clarity.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/breathwork-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/breathwork-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/breathwork-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/breathwork-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/breathwork-1_alt.svg",
+          "tags": [
+            "balance",
+            "focus",
+            "energy"
+          ]
+        },
+        {
+          "id": 1102,
+          "title": "Practice 11B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Balances nervous system",
+            "Enhances focus",
+            "Calms emotional fluctuations"
+          ],
+          "description": "An alternate nostril breathing technique that balances both sides of the brain and nervous system.",
+          "steps": [
+            "Use your thumb to close one nostril and inhale through the other.",
+            "Switch sides and exhale through the alternate nostril.",
+            "Continue alternating for several cycles, maintaining steady rhythm."
+          ],
+          "affirmation": "With each breath, I find harmony and balance.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/breathwork-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/breathwork-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/breathwork-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/breathwork-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/breathwork-2_alt.svg",
+          "tags": [
+            "balance",
+            "focus",
+            "energy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Vipassana Meditation",
+      "slug": "vipassana",
+      "description": "An insight meditation focusing on awareness of sensations and impermanence.",
+      "tags": [
+        "insight",
+        "mindfulness",
+        "clarity"
+      ],
+      "practices": [
+        {
+          "id": 1201,
+          "title": "Practice 12A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Increases self-understanding",
+            "Develops equanimity",
+            "Reduces reactivity"
+          ],
+          "description": "An insight meditation observing sensations to understand impermanence and self-awareness.",
+          "steps": [
+            "Sit quietly with eyes closed and observe physical sensations.",
+            "Notice arising and passing sensations objectively.",
+            "Maintain awareness without reacting or labeling experiences."
+          ],
+          "affirmation": "Awareness reveals clarity and peace.",
+          "duration": "10–15 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/vipassana-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/vipassana-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/vipassana-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/vipassana-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/vipassana-1_alt.svg",
+          "tags": [
+            "insight",
+            "mindfulness",
+            "clarity"
+          ]
+        },
+        {
+          "id": 1202,
+          "title": "Practice 12B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Enhances mindfulness",
+            "Improves concentration",
+            "Encourages emotional stability"
+          ],
+          "description": "A mindfulness technique emphasizing observation of body and mind to cultivate insight.",
+          "steps": [
+            "Observe natural sensations in the body with steady attention.",
+            "Notice how experiences arise and fade moment to moment.",
+            "Stay neutral and accepting toward all sensations."
+          ],
+          "affirmation": "Each moment teaches me awareness.",
+          "duration": "15–20 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/vipassana-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/vipassana-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/vipassana-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/vipassana-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/vipassana-2_alt.svg",
+          "tags": [
+            "insight",
+            "mindfulness",
+            "clarity"
+          ]
+        }
+      ]
+    }
+  ]
+}
