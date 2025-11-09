@@ -302,12 +302,14 @@ export default function MealPlanner() {
                         );
                       }
                     }
-                    const mealArr =
-                      parsed && Array.isArray(parsed.meals)
-                        ? parsed.meals
-                        : Array.isArray(parsed.meal_plan)
-                        ? parsed.meal_plan
-                        : null;
+                    const mealPlan = parsed && parsed.meal_plan;
+                    const mealArr = mealPlan && typeof mealPlan === 'object' && !Array.isArray(mealPlan)
+                      ? Object.values(mealPlan)
+                      : Array.isArray(mealPlan)
+                      ? mealPlan
+                      : parsed && Array.isArray(parsed.meals)
+                      ? parsed.meals
+                      : null;
                     if (mealArr) {
                       return (
                         <div className="mt-6">
@@ -316,27 +318,22 @@ export default function MealPlanner() {
                             <div className="mb-4 p-4 rounded bg-blue-50 border border-blue-200">
                               <h3 className="font-semibold mb-1">Overall Macros</h3>
                               <p>
-                                Calories:{" "}
+                                Protein:{" "}
                                 <span className="font-semibold">
-                                  {parsed.overall_macros.total_calories}
+                                  {parsed.overall_macros.protein}
                                 </span>
-                                , Protein:{" "}
+                                , Carbs:{" "}
                                 <span className="font-semibold">
-                                  {parsed.overall_macros.total_protein}
+                                  {parsed.overall_macros.carbs}
                                 </span>
-                                g, Carbs:{" "}
+                                , Fats:{" "}
                                 <span className="font-semibold">
-                                  {parsed.overall_macros.total_carbs}
+                                  {parsed.overall_macros.fats}
                                 </span>
-                                g, Fats:{" "}
+                                , Fiber:{" "}
                                 <span className="font-semibold">
-                                  {parsed.overall_macros.total_fats}
+                                  {parsed.overall_macros.fiber}
                                 </span>
-                                g, Fiber:{" "}
-                                <span className="font-semibold">
-                                  {parsed.overall_macros.total_fiber}
-                                </span>
-                                g
                               </p>
                             </div>
                           )}
@@ -351,12 +348,12 @@ export default function MealPlanner() {
                                   <p className="mb-1">Calories: {meal.calories}</p>
                                   {meal.macronutrients && (
                                     <p className="mb-1">
-                                      Macronutrients: Protein: {meal.macronutrients.protein}g, Carbs: {meal.macronutrients.carbs}g, Fats: {meal.macronutrients.fats}g, Fiber: {meal.macronutrients.fiber}g
+                                      Macronutrients: Protein: {meal.macronutrients.protein}, Carbs: {meal.macronutrients.carbs}, Fats: {meal.macronutrients.fats}, Fiber: {meal.macronutrients.fiber}
                                     </p>
                                   )}
                                   {meal.macronutrient_breakdown && (
                                     <p className="mb-1">
-                                      Macronutrients: Protein: {meal.macronutrient_breakdown.protein}g, Carbs: {meal.macronutrient_breakdown.carbs}g, Fats: {meal.macronutrient_breakdown.fats}g, Fiber: {meal.macronutrient_breakdown.fiber}g
+                                      Macronutrients: Protein: {meal.macronutrient_breakdown.protein}, Carbs: {meal.macronutrient_breakdown.carbs}, Fats: {meal.macronutrient_breakdown.fats}, Fiber: {meal.macronutrient_breakdown.fiber}
                                     </p>
                                   )}
                                   {meal.ingredients && (
