@@ -47,17 +47,33 @@ interface CategoryWithTransitive extends Category {
 
 interface MeditationCategory {
   id: number
-  category_name: string
-  category_description: string
+  name: string
+  slug: string
+  description: string
+  tags: string[]
   practices: MeditationPractice[]
 }
 
 interface MeditationPractice {
   id: number
-  english_name: string
-  practice_benefits: string
-  practice_description: string
-  suggested_duration: string
+  title: string
+  difficulty: string
+  benefits: string[]
+  description: string
+  steps: string[]
+  affirmation: string
+  duration: string
+  environment: string
+  audio_url: string
+  video_url: string
+  tags: string[]
+}
+
+interface Mood {
+  id: number
+  mood: string
+  description: string
+  recommended_practices: number[]
 }
 
 export async function getBaseURL() {
@@ -218,4 +234,14 @@ export async function getMeditation(): Promise<MeditationCategory[]> {
   if (error) throw error
 
   return (data as MeditationCategory[]) || []
+}
+
+export async function getMoods(): Promise<Mood[]> {
+  const { data, error } = await supabase
+    .from('moods')
+    .select('*')
+
+  if (error) throw error
+
+  return (data as Mood[]) || []
 }

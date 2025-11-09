@@ -40,17 +40,33 @@ interface TransitivePose {
 
 interface MeditationCategory {
   id: number;
-  category_name: string;
-  category_description: string;
+  name: string;
+  slug: string;
+  description: string;
+  tags: string[];
+  practices: MeditationPractice[];
 }
 
 interface MeditationPractice {
   id: number;
   category_id: number;
-  english_name: string;
-  practice_benefits: string;
-  practice_description: string;
-  suggested_duration: string;
+  title: string;
+  difficulty: string;
+  benefits: string[];
+  description: string;
+  steps: string[];
+  affirmation: string;
+  duration: string;
+  environment: string;
+  audio_url: string;
+  video_url: string;
+  tags: string[];
+}
+
+interface Mood {
+  mood: string;
+  description: string;
+  recommended_practices: number[];
 }
 
 async function migrateData() {
@@ -60,9 +76,10 @@ async function migrateData() {
     await supabase.from('categories').delete().neq('id', 0);
     await supabase.from('poses').delete().neq('id', 0);
     await supabase.from('difficulty').delete().neq('id', 0);
+    await supabase.from('moods').delete().neq('id', 0);
     await supabase.from('meditation_practices').delete().neq('id', 0);
     await supabase.from('meditation_categories').delete().neq('id', 0);
-    console.log('Existing data cleared');
+    console.log('Existing meditation data cleared');
 
     // Insert difficulty levels first
     const difficultyData: Difficulty[] = JSON.parse(fs.readFileSync('difficulty.json', 'utf8'));
@@ -88,17 +105,63 @@ async function migrateData() {
     if (transError) throw transError;
     console.log('Transitive poses data inserted');
 
-    // Insert meditation categories
-    const meditationCategoriesData: MeditationCategory[] = JSON.parse(fs.readFileSync('meditation_categories.json', 'utf8'));
-    const { error: medCatError } = await supabase.from('meditation_categories').insert(meditationCategoriesData);
+    // Insert meditation categories and practices from meditations.json
+    const meditationsData: { categories: MeditationCategory[] } = JSON.parse(fs.readFileSync('meditations.json', 'utf8'));
+
+    // Insert categories
+    const categoriesToInsert = meditationsData.categories.map(cat => ({
+      id: cat.id,
+      category_name: cat.name,
+      category_description: cat.description,
+      name: cat.name,
+      slug: cat.slug,
+      description: cat.description,
+      tags: cat.tags
+    }));
+    const { error: medCatError } = await supabase.from('meditation_categories').insert(categoriesToInsert);
     if (medCatError) throw medCatError;
     console.log('Meditation categories data inserted');
 
-    // Insert meditation practices
-    const meditationPracticesData: MeditationPractice[] = JSON.parse(fs.readFileSync('meditation_practices.json', 'utf8'));
-    const { error: medPracError } = await supabase.from('meditation_practices').insert(meditationPracticesData);
+    // Insert practices
+    const practicesToInsert: any[] = [];
+    meditationsData.categories.forEach(cat => {
+      cat.practices.forEach(practice => {
+        practicesToInsert.push({
+          id: practice.id,
+          category_id: cat.id,
+          english_name: practice.title,
+          practice_benefits: practice.benefits.join(', '),
+          practice_description: practice.description,
+          suggested_duration: practice.duration,
+          title: practice.title,
+          difficulty: practice.difficulty,
+          benefits: practice.benefits,
+          description: practice.description,
+          steps: practice.steps,
+          affirmation: practice.affirmation,
+          duration: practice.duration,
+          environment: practice.environment,
+          audio_url: practice.audio_url,
+          video_url: practice.video_url,
+          tags: practice.tags
+        });
+      });
+    });
+    const { error: medPracError } = await supabase.from('meditation_practices').insert(practicesToInsert);
     if (medPracError) throw medPracError;
     console.log('Meditation practices data inserted');
+
+    // Insert moods data
+    const moodsData: { moods: Mood[] } = JSON.parse(fs.readFileSync('moods.json', 'utf8'));
+    const moodsToInsert = moodsData.moods.map((mood, index) => ({
+      id: index + 1,
+      mood: mood.mood,
+      description: mood.description,
+      recommended_practices: mood.recommended_practices
+    }));
+    const { error: moodsError } = await supabase.from('moods').insert(moodsToInsert);
+    if (moodsError) throw moodsError;
+    console.log('Moods data inserted');
 
     console.log('Migration completed successfully!');
   } catch (error) {

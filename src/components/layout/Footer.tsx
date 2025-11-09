@@ -10,7 +10,8 @@ const footerLinks = {
     { name: "AI Meal Planner", href: "/meal-planner" },
   ],
   wellness: [
-    { name: "Yoga and Meditation", href: "/yoga" },
+    { name: "Yoga", href: "/yoga" },
+    { name: "Meditation", href: "/meditation" },
     // { name: "Mental Health", href: "/mental-health" },
   ],
   support: [

@@ -46,10 +46,17 @@ const features = [
   },
   {
     icon: Heart,
-    title: "Yoga & Meditation",
-    description: "Guided yoga sessions and mindfulness practices",
+    title: "Yoga",
+    description: "Guided yoga sessions and poses",
     href: "/yoga",
     color: "text-warning"
+  },
+  {
+    icon: Brain,
+    title: "Meditation",
+    description: "Mindfulness practices and meditation techniques",
+    href: "/meditation",
+    color: "text-accent"
   },
   // {
   //   icon: Users,

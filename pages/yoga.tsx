@@ -83,9 +83,9 @@ export default function Yoga() {
       >
 
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-foreground">Yoga & Meditation</h1>
+          <h1 className="text-3xl font-bold text-foreground">Yoga</h1>
           <Link href="/meditation" className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
-            Meditation Only
+            Go to Meditation
           </Link>
         </div>
 
