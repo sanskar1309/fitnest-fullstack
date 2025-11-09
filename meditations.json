@@ -19,18 +19,18 @@
           "title": "Breath Awareness",
           "difficulty": "Beginner",
           "benefits": [
-            "Reduces stress and anxiety",
-            "Improves focus",
-            "Promotes relaxation"
+            "Enhances focus and awareness",
+            "Reduces anxiety and stress",
+            "Improves emotional regulation"
           ],
-          "description": "Sit comfortably and focus on the rhythm of your breathing. Notice each inhale and exhale without trying to change it.",
+          "description": "A practice that develops mindfulness by observing the natural flow of breath, fostering calmness and presence.",
           "steps": [
-            "Sit upright and close your eyes.",
-            "Bring attention to your breath.",
-            "When distracted, gently return to breathing."
+            "Choose a comfortable seated position and allow the body to relax.",
+            "Notice the natural rhythm of each inhale and exhale without changing it.",
+            "When distractions arise, acknowledge them and gently return focus to breathing."
           ],
-          "affirmation": "I am calm and present.",
-          "duration": "5\u201310 minutes",
+          "affirmation": "Each breath grounds me in the present moment.",
+          "duration": "5–10 minutes",
           "environment": "Quiet seated space",
           "audio_url": "https://cdn.example.com/meditations/audio/mindfulness-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/mindfulness-1.mp4",
@@ -48,18 +48,18 @@
           "title": "Body Scan",
           "difficulty": "Beginner",
           "benefits": [
-            "Releases tension",
-            "Enhances body awareness",
-            "Promotes relaxation"
+            "Promotes physical relaxation",
+            "Improves body awareness",
+            "Reduces stress and restlessness"
           ],
-          "description": "Lie down or sit comfortably. Bring awareness from head to toe, observing sensations without changing them.",
+          "description": "This technique increases body awareness by slowly observing sensations from head to toe, helping to release physical tension.",
           "steps": [
-            "Lie comfortably.",
-            "Bring focus to the head, then move slowly to toes.",
-            "Observe without judgment."
+            "Lie down or sit upright with eyes closed.",
+            "Bring awareness to the top of the head and move slowly through each part of the body.",
+            "Notice sensations objectively, without trying to alter them."
           ],
-          "affirmation": "My body is relaxed and at ease.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "I feel connected and relaxed throughout my body.",
+          "duration": "10–15 minutes",
           "environment": "Quiet room",
           "audio_url": "https://cdn.example.com/meditations/audio/mindfulness-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/mindfulness-2.mp4",
@@ -90,18 +90,18 @@
           "title": "Traditional Loving-Kindness",
           "difficulty": "Beginner",
           "benefits": [
-            "Increases empathy",
-            "Reduces anger",
-            "Enhances well-being"
+            "Increases empathy and compassion",
+            "Enhances positive emotions",
+            "Reduces anger and resentment"
           ],
-          "description": "Silently repeat phrases like \u2018May I be happy, may I be safe.\u2019 Gradually extend these wishes to others.",
+          "description": "A meditation focused on cultivating kindness and compassion for oneself and others through repeated positive phrases.",
           "steps": [
-            "Sit comfortably.",
-            "Repeat kind phrases for yourself.",
-            "Extend wishes to others."
+            "Sit comfortably and bring someone you care for to mind.",
+            "Repeat gentle phrases such as ‘May you be happy, may you be peaceful.’",
+            "Extend these wishes to yourself and then all beings."
           ],
-          "affirmation": "May I be kind and peaceful.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "May kindness flow from me to all living beings.",
+          "duration": "10–15 minutes",
           "environment": "Comfortable sitting posture",
           "audio_url": "https://cdn.example.com/meditations/audio/loving-kindness-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/loving-kindness-1.mp4",
@@ -120,17 +120,17 @@
           "difficulty": "Intermediate",
           "benefits": [
             "Reduces self-criticism",
-            "Encourages forgiveness",
-            "Improves balance"
+            "Supports emotional healing",
+            "Builds self-respect"
           ],
-          "description": "Visualize yourself as a friend in need of compassion. Offer yourself kindness and patience.",
+          "description": "This meditation encourages self-acceptance and understanding by directing warmth and patience toward oneself.",
           "steps": [
-            "Close your eyes.",
-            "Visualize your face smiling back.",
-            "Repeat kind phrases."
+            "Sit quietly and acknowledge your current emotions.",
+            "Silently repeat comforting phrases directed to yourself.",
+            "End by recognizing your worth and capacity for growth."
           ],
-          "affirmation": "I treat myself with kindness.",
-          "duration": "10\u201320 minutes",
+          "affirmation": "I treat myself with patience and understanding.",
+          "duration": "10–20 minutes",
           "environment": "Quiet setting",
           "audio_url": "https://cdn.example.com/meditations/audio/loving-kindness-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/loving-kindness-2.mp4",
@@ -161,17 +161,18 @@
           "title": "Practice 3A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Eases anxiety",
+            "Encourages creativity",
+            "Enhances relaxation response"
           ],
-          "description": "Description for practice A of category 3.",
+          "description": "This visualization helps to create a sense of safety and relaxation through positive imagery.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Find a quiet space and close your eyes.",
+            "Visualize a peaceful scene such as a beach or forest with vivid detail.",
+            "Immerse yourself in the sounds and sensations of the environment."
           ],
-          "affirmation": "Affirmation for practice A 3.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "My mind creates calm and peaceful spaces.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/guided-visualization-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/guided-visualization-1.mp4",
@@ -189,17 +190,18 @@
           "title": "Practice 3B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Builds confidence",
+            "Improves focus",
+            "Supports emotional regulation"
           ],
-          "description": "Description for practice B of category 3.",
+          "description": "A visualization that focuses on manifesting positive emotions and confidence through mental imagery.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Choose an image that represents strength or joy.",
+            "Visualize yourself embodying this feeling completely.",
+            "Stay present with the emotion for a few breaths before returning to awareness."
           ],
-          "affirmation": "Affirmation for practice B 3.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "I visualize confidence and strength within me.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/guided-visualization-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/guided-visualization-2.mp4",
@@ -230,17 +232,18 @@
           "title": "Practice 4A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Improves concentration",
+            "Encourages mental clarity",
+            "Calms restless thoughts"
           ],
-          "description": "Description for practice A of category 4.",
+          "description": "A mantra repetition technique used to focus the mind and reduce distraction.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Select a simple phrase or sound that feels meaningful.",
+            "Repeat it silently or aloud in rhythm with your breath.",
+            "Return to the mantra whenever thoughts drift away."
           ],
-          "affirmation": "Affirmation for practice A 4.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "Repetition brings stillness to my mind.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/mantra-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/mantra-1.mp4",
@@ -258,17 +261,18 @@
           "title": "Practice 4B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Reduces stress",
+            "Improves focus",
+            "Cultivates inner balance"
           ],
-          "description": "Description for practice B of category 4.",
+          "description": "This practice uses sound or words to quiet mental noise and increase mindfulness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Find a comfortable seated position.",
+            "Repeat a chosen mantra softly, aligning it with your breathing.",
+            "Allow the vibration and rhythm to calm your awareness."
           ],
-          "affirmation": "Affirmation for practice B 4.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "My focus deepens with each repetition.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/mantra-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/mantra-2.mp4",
@@ -299,17 +303,18 @@
           "title": "Practice 5A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Improves grounding",
+            "Enhances balance and focus",
+            "Calms the body and mind"
           ],
-          "description": "Description for practice A of category 5.",
+          "description": "A walking meditation that builds mindfulness through movement and sensory awareness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Walk slowly in a safe, quiet space.",
+            "Pay attention to each step and how the feet make contact with the ground.",
+            "Maintain steady breathing while observing body sensations."
           ],
-          "affirmation": "Affirmation for practice A 5.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "Each step connects me to the present moment.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/movement-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/movement-1.mp4",
@@ -327,17 +332,18 @@
           "title": "Practice 5B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Relieves physical tension",
+            "Improves posture awareness",
+            "Encourages gentle focus"
           ],
-          "description": "Description for practice B of category 5.",
+          "description": "Gentle movement combined with mindfulness to improve body awareness and reduce tension.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Begin slow, deliberate stretches or motions.",
+            "Stay aware of sensations as you move.",
+            "Breathe evenly and stay attentive to physical feedback."
           ],
-          "affirmation": "Affirmation for practice B 5.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "My movements flow with ease and awareness.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/movement-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/movement-2.mp4",
@@ -368,17 +374,18 @@
           "title": "Practice 6A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Develops patience",
+            "Fosters mental clarity",
+            "Improves discipline and focus"
           ],
-          "description": "Description for practice A of category 6.",
+          "description": "A seated Zen meditation emphasizing awareness of posture, breath, and mental stillness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Sit upright with hands resting in the lap.",
+            "Bring attention to breathing or posture.",
+            "Observe thoughts as they arise without following them."
           ],
-          "affirmation": "Affirmation for practice A 6.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "Stillness allows my mind to see clearly.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/zen-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/zen-1.mp4",
@@ -396,17 +403,18 @@
           "title": "Practice 6B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Promotes equanimity",
+            "Improves concentration",
+            "Encourages self-awareness"
           ],
-          "description": "Description for practice B of category 6.",
+          "description": "A Zen mindfulness session that cultivates calm observation without goals or judgment.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Adopt a comfortable seated posture.",
+            "Focus lightly on the breath while maintaining open awareness.",
+            "Acknowledge thoughts and sensations, letting them pass naturally."
           ],
-          "affirmation": "Affirmation for practice B 6.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "Awareness deepens in silence.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/zen-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/zen-2.mp4",
@@ -437,17 +445,18 @@
           "title": "Practice 7A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Reduces stress",
+            "Improves creativity and energy",
+            "Enhances clarity"
           ],
-          "description": "Description for practice A of category 7.",
+          "description": "A mantra-based meditation that allows the mind to settle into quiet awareness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Sit comfortably with eyes closed.",
+            "Silently repeat your chosen mantra effortlessly.",
+            "Allow thoughts to fade as the mind becomes still."
           ],
-          "affirmation": "Affirmation for practice A 7.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "I rest deeply in calm awareness.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/transcendental-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/transcendental-1.mp4",
@@ -465,17 +474,18 @@
           "title": "Practice 7B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Improves sleep quality",
+            "Balances energy",
+            "Supports emotional clarity"
           ],
-          "description": "Description for practice B of category 7.",
+          "description": "An effortless repetition of a sound or phrase that encourages relaxation and mental rest.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Choose a simple sound or syllable to repeat silently.",
+            "Focus gently on the repetition without forcing attention.",
+            "If the mind wanders, return to the mantra with ease."
           ],
-          "affirmation": "Affirmation for practice B 7.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "Quiet repetition brings peace to my mind.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/transcendental-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/transcendental-2.mp4",
@@ -506,17 +516,18 @@
           "title": "Practice 8A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Encourages deep sleep",
+            "Reduces fatigue",
+            "Releases physical tension"
           ],
-          "description": "Description for practice A of category 8.",
+          "description": "A guided relaxation that moves attention through the body to achieve deep rest.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Lie down and make the body comfortable.",
+            "Follow a guided awareness moving through body parts.",
+            "Rest in the calm state between wakefulness and sleep."
           ],
-          "affirmation": "Affirmation for practice A 8.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "Rest and stillness renew my body and mind.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/yoga-nidra-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/yoga-nidra-1.mp4",
@@ -534,17 +545,18 @@
           "title": "Practice 8B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Improves relaxation response",
+            "Releases emotional tension",
+            "Supports nervous system balance"
           ],
-          "description": "Description for practice B of category 8.",
+          "description": "A deep relaxation meditation designed to reset the nervous system and promote recovery.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Lie comfortably on your back.",
+            "Listen to the guidance moving awareness across the body.",
+            "Allow yourself to stay awake yet deeply relaxed."
           ],
-          "affirmation": "Affirmation for practice B 8.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "Calmness restores my inner balance.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/yoga-nidra-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/yoga-nidra-2.mp4",
@@ -575,17 +587,18 @@
           "title": "Practice 9A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Balances energy flow",
+            "Improves self-awareness",
+            "Enhances emotional harmony"
           ],
-          "description": "Description for practice A of category 9.",
+          "description": "A meditation that balances the body's energy centers through visualization and attention.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Sit upright and bring awareness to the base of the spine.",
+            "Visualize each chakra with its color while breathing steadily.",
+            "End by imagining energy flowing freely through the body."
           ],
-          "affirmation": "Affirmation for practice A 9.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "My energy is balanced and aligned.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/chakra-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/chakra-1.mp4",
@@ -603,17 +616,18 @@
           "title": "Practice 9B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Increases vitality",
+            "Improves focus",
+            "Promotes emotional balance"
           ],
-          "description": "Description for practice B of category 9.",
+          "description": "A visualization that focuses on activating specific chakras for vitality and focus.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Visualize the energy centers along your spine.",
+            "Breathe deeply while concentrating on each chakra’s color.",
+            "Finish with a feeling of openness and balance."
           ],
-          "affirmation": "Affirmation for practice B 9.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "Energy moves freely through me.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/chakra-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/chakra-2.mp4",
@@ -644,17 +658,18 @@
           "title": "Practice 10A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Promotes deep relaxation",
+            "Improves mood",
+            "Enhances auditory awareness"
           ],
-          "description": "Description for practice A of category 10.",
+          "description": "This meditation uses sound frequencies to calm the nervous system and encourage mindfulness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Sit or lie comfortably and listen to calming tones or gongs.",
+            "Focus on the vibrations as they resonate through the body.",
+            "Allow sound to guide you into stillness."
           ],
-          "affirmation": "Affirmation for practice A 10.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "I am attuned to peace through sound.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/sound-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/sound-1.mp4",
@@ -672,17 +687,18 @@
           "title": "Practice 10B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Improves concentration",
+            "Reduces stress",
+            "Encourages sensory mindfulness"
           ],
-          "description": "Description for practice B of category 10.",
+          "description": "A mindful listening practice that helps cultivate focus through sound awareness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Listen to ambient sounds or music with full attention.",
+            "Notice variations in pitch, tone, and rhythm.",
+            "Maintain awareness of sound without judgment."
           ],
-          "affirmation": "Affirmation for practice B 10.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "Each sound reminds me to stay present.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/sound-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/sound-2.mp4",
@@ -713,17 +729,18 @@
           "title": "Practice 11A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Improves oxygen flow",
+            "Increases alertness",
+            "Balances emotions"
           ],
-          "description": "Description for practice A of category 11.",
+          "description": "A conscious breathing exercise that enhances energy and calms the mind.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Sit comfortably with an upright spine.",
+            "Inhale deeply through the nose and exhale through the mouth.",
+            "Maintain a steady rhythm for several minutes."
           ],
-          "affirmation": "Affirmation for practice A 11.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "Breath brings balance and clarity.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/breathwork-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/breathwork-1.mp4",
@@ -741,17 +758,18 @@
           "title": "Practice 11B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Balances nervous system",
+            "Enhances focus",
+            "Calms emotional fluctuations"
           ],
-          "description": "Description for practice B of category 11.",
+          "description": "An alternate nostril breathing technique that balances both sides of the brain and nervous system.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Use your thumb to close one nostril and inhale through the other.",
+            "Switch sides and exhale through the alternate nostril.",
+            "Continue alternating for several cycles, maintaining steady rhythm."
           ],
-          "affirmation": "Affirmation for practice B 11.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "With each breath, I find harmony and balance.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/breathwork-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/breathwork-2.mp4",
@@ -782,17 +800,18 @@
           "title": "Practice 12A",
           "difficulty": "Beginner",
           "benefits": [
-            "Benefit A1",
-            "Benefit A2"
+            "Increases self-understanding",
+            "Develops equanimity",
+            "Reduces reactivity"
           ],
-          "description": "Description for practice A of category 12.",
+          "description": "An insight meditation observing sensations to understand impermanence and self-awareness.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Sit quietly with eyes closed and observe physical sensations.",
+            "Notice arising and passing sensations objectively.",
+            "Maintain awareness without reacting or labeling experiences."
           ],
-          "affirmation": "Affirmation for practice A 12.",
-          "duration": "10\u201315 minutes",
+          "affirmation": "Awareness reveals clarity and peace.",
+          "duration": "10–15 minutes",
           "environment": "Calm environment",
           "audio_url": "https://cdn.example.com/meditations/audio/vipassana-1.mp3",
           "video_url": "https://cdn.example.com/meditations/video/vipassana-1.mp4",
@@ -810,17 +829,18 @@
           "title": "Practice 12B",
           "difficulty": "Intermediate",
           "benefits": [
-            "Benefit B1",
-            "Benefit B2"
+            "Enhances mindfulness",
+            "Improves concentration",
+            "Encourages emotional stability"
           ],
-          "description": "Description for practice B of category 12.",
+          "description": "A mindfulness technique emphasizing observation of body and mind to cultivate insight.",
           "steps": [
-            "Step 1",
-            "Step 2",
-            "Step 3"
+            "Observe natural sensations in the body with steady attention.",
+            "Notice how experiences arise and fade moment to moment.",
+            "Stay neutral and accepting toward all sensations."
           ],
-          "affirmation": "Affirmation for practice B 12.",
-          "duration": "15\u201320 minutes",
+          "affirmation": "Each moment teaches me awareness.",
+          "duration": "15–20 minutes",
           "environment": "Comfortable place",
           "audio_url": "https://cdn.example.com/meditations/audio/vipassana-2.mp3",
           "video_url": "https://cdn.example.com/meditations/video/vipassana-2.mp4",
