@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "category_name": "Mindfulness Meditation",
+    "category_description": "Cultivate present-moment awareness by observing thoughts, sensations, and feelings non-judgmentally."
+  },
+  {
+    "id": 2,
+    "category_name": "Loving-Kindness Meditation",
+    "category_description": "Develop compassion and positive emotions toward yourself and others through intentional phrases."
+  },
+  {
+    "id": 3,
+    "category_name": "Guided Visualization",
+    "category_description": "Use detailed mental imagery to evoke calm and positivity."
+  },
+  {
+    "id": 4,
+    "category_name": "Mantra Meditation",
+    "category_description": "Focus your mind by silently or softly repeating a word, phrase, or sound."
+  },
+  {
+    "id": 5,
+    "category_name": "Movement Meditation",
+    "category_description": "Combine gentle movement with mindful attention to sensations and breath."
+  },
+  {
+    "id": 6,
+    "category_name": "Zen Meditation (Zazen)",
+    "category_description": "Sit in stillness, observing thoughts and sensations without focus on objects or goals."
+  }
+]

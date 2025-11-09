@@ -12,6 +12,7 @@ const navigation = [
   { name: "Nutrition", href: "/nutrition" },
   { name: "AI Meal Planner", href: "/meal-planner" },
   { name: "Yoga", href: "/yoga" },
+  { name: "Meditation", href: "/meditation" },
   // { name: "Mental Health", href: "/mental-health" },
   { name: "About", href: "/about" },
 ];

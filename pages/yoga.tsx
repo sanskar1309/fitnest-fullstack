@@ -9,6 +9,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { LottieLoader } from "@/components/ui/LottieLoader";
+import Link from "next/link";
 
 interface Pose {
   id: number;
@@ -81,7 +82,12 @@ export default function Yoga() {
         className="max-w-7xl mx-auto"
       >
 
-        <h1 className="text-3xl font-bold text-foreground mb-6">Yoga & Meditation</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold text-foreground">Yoga</h1>
+          <Link href="/meditation" className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
+            Go to Meditation
+          </Link>
+        </div>
 
         {error && <p className="text-destructive">Error: {error}</p>}
 
@@ -95,7 +101,14 @@ export default function Yoga() {
                 }`}
                 onClick={() => {
                   setSelectedCategory(category);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  const posesElement = document.getElementById('poses');
+                  if (posesElement) {
+                    if (window.innerWidth >= 768) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                      posesElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
                 }}
               >
                 <CardHeader>
@@ -106,7 +119,7 @@ export default function Yoga() {
             ))}
           </div>
 
-          <div className="md:w-2/3 space-y-6">
+          <div id="poses" className="md:w-2/3 space-y-6">
             {selectedCategory ? (
               <>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">
@@ -152,7 +165,7 @@ export default function Yoga() {
         </div>
 
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="w-[90vw] sm:w-auto max-w-2xl">
             <DialogHeader>
               <DialogTitle>{modalData?.english_name}</DialogTitle>
               <DialogDescription>
