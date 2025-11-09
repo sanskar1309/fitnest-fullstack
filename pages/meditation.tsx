@@ -9,45 +9,40 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { LottieLoader } from "@/components/ui/LottieLoader";
-import Link from "next/link";
 
-interface Pose {
+interface MeditationPractice {
   id: number;
   english_name: string;
-  sanskrit_name_adapted: string;
-  sanskrit_name: string;
-  translation_name: string;
-  pose_description: string;
-  pose_benefits: string;
-  url_svg: string;
-  url_png: string;
-  url_svg_alt: string;
+  practice_benefits: string;
+  practice_description: string;
+  suggested_duration: string;
 }
 
-interface Category {
+interface MeditationCategory {
   id: number;
   category_name: string;
   category_description: string;
-  poses: Pose[];
+  practices: MeditationPractice[];
 }
 
-export default function Yoga() {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+export default function Meditation() {
+  const [categories, setCategories] = useState<MeditationCategory[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<MeditationCategory | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setModalData] = useState<Pose | null>(null);
+  const [modalData, setModalData] = useState<MeditationPractice | null>(null);
 
   useEffect(() => {
     async function fetchCategories() {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch("/api/v1/categories");
-        if (!res.ok) throw new Error("Failed to fetch categories");
-        const data: Category[] = await res.json();
+        const res = await fetch("/api/v1/meditation");
+        if (!res.ok) throw new Error("Failed to fetch meditation categories");
+        const response = await res.json();
+        const data: MeditationCategory[] = response.data || response;
         setCategories(data);
         if (data.length > 0) setSelectedCategory(data[0]);
       } catch (err: unknown) {
@@ -63,8 +58,8 @@ export default function Yoga() {
     fetchCategories();
   }, []);
 
-  async function handlePoseClick(pose: Pose) {
-    setModalData(pose);
+  async function handlePracticeClick(practice: MeditationPractice) {
+    setModalData(practice);
     setIsModalOpen(true);
   }
 
@@ -81,13 +76,7 @@ export default function Yoga() {
         transition={{ duration: 0.6 }}
         className="max-w-7xl mx-auto"
       >
-
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-foreground">Yoga & Meditation</h1>
-          <Link href="/meditation" className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
-            Meditation Only
-          </Link>
-        </div>
+        <h1 className="text-3xl font-bold text-foreground mb-6">Meditation Practices</h1>
 
         {error && <p className="text-destructive">Error: {error}</p>}
 
@@ -101,12 +90,12 @@ export default function Yoga() {
                 }`}
                 onClick={() => {
                   setSelectedCategory(category);
-                  const posesElement = document.getElementById('poses');
-                  if (posesElement) {
+                  const practicesElement = document.getElementById('practices');
+                  if (practicesElement) {
                     if (window.innerWidth >= 768) {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
-                      posesElement.scrollIntoView({ behavior: 'smooth' });
+                      practicesElement.scrollIntoView({ behavior: 'smooth' });
                     }
                   }
                 }}
@@ -119,34 +108,29 @@ export default function Yoga() {
             ))}
           </div>
 
-          <div id="poses" className="md:w-2/3 space-y-6">
+          <div id="practices" className="md:w-2/3 space-y-6">
             {selectedCategory ? (
               <>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">
-                  Poses in {selectedCategory.category_name}
+                  Practices in {selectedCategory.category_name}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {selectedCategory.poses.map((pose) => (
-                    <Card key={pose.id} className="border-border cursor-pointer" onClick={() => handlePoseClick(pose)}>
+                  {selectedCategory.practices.map((practice) => (
+                    <Card key={practice.id} className="border-border cursor-pointer" onClick={() => handlePracticeClick(practice)}>
                       <CardHeader>
-                        <CardTitle>{pose.english_name}</CardTitle>
-                        <CardDescription>{pose.sanskrit_name_adapted}</CardDescription>
+                        <CardTitle>{practice.english_name}</CardTitle>
+                        <CardDescription>Suggested Duration: {practice.suggested_duration}</CardDescription>
                       </CardHeader>
                       <CardContent className="h-45 flex flex-col justify-between">
-                        <img
-                          src={pose.url_png}
-                          alt={pose.english_name}
-                          className="w-full h-24 object-contain mb-2"
-                        />
                         <p className="text-muted-foreground text-sm">
-                          {pose.pose_benefits.length > 120
-                            ? `${pose.pose_benefits.slice(0, 120)}... `
-                            : pose.pose_benefits}
+                          {practice.practice_benefits.length > 120
+                            ? `${practice.practice_benefits.slice(0, 120)}... `
+                            : practice.practice_benefits}
                           <button
                             className="text-primary underline text-xs ml-1"
                             onClick={(e) => {
                               e.stopPropagation();
-                              handlePoseClick(pose);
+                              handlePracticeClick(practice);
                             }}
                             type="button"
                           >
@@ -159,7 +143,7 @@ export default function Yoga() {
                 </div>
               </>
             ) : (
-              <p>Select a category to see poses</p>
+              <p>Select a category to see practices</p>
             )}
           </div>
         </div>
@@ -169,23 +153,17 @@ export default function Yoga() {
             <DialogHeader>
               <DialogTitle>{modalData?.english_name}</DialogTitle>
               <DialogDescription>
-                <strong>Sanskrit:</strong> {modalData?.sanskrit_name} ({modalData?.sanskrit_name_adapted})<br />
-                <strong>Translation:</strong> {modalData?.translation_name}
+                Suggested Duration: {modalData?.suggested_duration}
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4">
-              <img
-                src={modalData?.url_png}
-                alt={modalData?.english_name}
-                className="w-full h-48 object-contain"
-              />
               <div>
                 <h4 className="font-semibold mb-2">Description:</h4>
-                <p className="text-sm text-muted-foreground">{modalData?.pose_description}</p>
+                <p className="text-sm text-muted-foreground">{modalData?.practice_description}</p>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Benefits:</h4>
-                <p className="text-sm text-muted-foreground">{modalData?.pose_benefits}</p>
+                <p className="text-sm text-muted-foreground">{modalData?.practice_benefits}</p>
               </div>
             </div>
           </DialogContent>

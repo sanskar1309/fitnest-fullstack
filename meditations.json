@@ -1,0 +1,839 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-08",
+  "project": "MindEase Meditation",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mindfulness Meditation",
+      "slug": "mindfulness",
+      "description": "Cultivate awareness of the present moment by observing thoughts, sensations, and emotions without judgment.",
+      "tags": [
+        "focus",
+        "awareness",
+        "calm"
+      ],
+      "practices": [
+        {
+          "id": 101,
+          "title": "Breath Awareness",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Reduces stress and anxiety",
+            "Improves focus",
+            "Promotes relaxation"
+          ],
+          "description": "Sit comfortably and focus on the rhythm of your breathing. Notice each inhale and exhale without trying to change it.",
+          "steps": [
+            "Sit upright and close your eyes.",
+            "Bring attention to your breath.",
+            "When distracted, gently return to breathing."
+          ],
+          "affirmation": "I am calm and present.",
+          "duration": "5\u201310 minutes",
+          "environment": "Quiet seated space",
+          "audio_url": "https://cdn.example.com/meditations/audio/mindfulness-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mindfulness-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mindfulness-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mindfulness-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mindfulness-1_alt.svg",
+          "tags": [
+            "focus",
+            "awareness",
+            "calm"
+          ]
+        },
+        {
+          "id": 102,
+          "title": "Body Scan",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Releases tension",
+            "Enhances body awareness",
+            "Promotes relaxation"
+          ],
+          "description": "Lie down or sit comfortably. Bring awareness from head to toe, observing sensations without changing them.",
+          "steps": [
+            "Lie comfortably.",
+            "Bring focus to the head, then move slowly to toes.",
+            "Observe without judgment."
+          ],
+          "affirmation": "My body is relaxed and at ease.",
+          "duration": "10\u201315 minutes",
+          "environment": "Quiet room",
+          "audio_url": "https://cdn.example.com/meditations/audio/mindfulness-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mindfulness-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mindfulness-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mindfulness-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mindfulness-2_alt.svg",
+          "tags": [
+            "focus",
+            "awareness",
+            "calm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Loving-Kindness Meditation",
+      "slug": "loving-kindness",
+      "description": "Develop compassion and positive emotions toward yourself and others using intentional loving phrases.",
+      "tags": [
+        "compassion",
+        "empathy",
+        "gratitude"
+      ],
+      "practices": [
+        {
+          "id": 201,
+          "title": "Traditional Loving-Kindness",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Increases empathy",
+            "Reduces anger",
+            "Enhances well-being"
+          ],
+          "description": "Silently repeat phrases like \u2018May I be happy, may I be safe.\u2019 Gradually extend these wishes to others.",
+          "steps": [
+            "Sit comfortably.",
+            "Repeat kind phrases for yourself.",
+            "Extend wishes to others."
+          ],
+          "affirmation": "May I be kind and peaceful.",
+          "duration": "10\u201315 minutes",
+          "environment": "Comfortable sitting posture",
+          "audio_url": "https://cdn.example.com/meditations/audio/loving-kindness-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/loving-kindness-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/loving-kindness-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/loving-kindness-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/loving-kindness-1_alt.svg",
+          "tags": [
+            "compassion",
+            "empathy",
+            "gratitude"
+          ]
+        },
+        {
+          "id": 202,
+          "title": "Self-Compassion Practice",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Reduces self-criticism",
+            "Encourages forgiveness",
+            "Improves balance"
+          ],
+          "description": "Visualize yourself as a friend in need of compassion. Offer yourself kindness and patience.",
+          "steps": [
+            "Close your eyes.",
+            "Visualize your face smiling back.",
+            "Repeat kind phrases."
+          ],
+          "affirmation": "I treat myself with kindness.",
+          "duration": "10\u201320 minutes",
+          "environment": "Quiet setting",
+          "audio_url": "https://cdn.example.com/meditations/audio/loving-kindness-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/loving-kindness-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/loving-kindness-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/loving-kindness-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/loving-kindness-2_alt.svg",
+          "tags": [
+            "compassion",
+            "empathy",
+            "gratitude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Guided Visualization",
+      "slug": "guided-visualization",
+      "description": "Use detailed mental imagery to evoke calm, clarity, and positive emotion.",
+      "tags": [
+        "creativity",
+        "relaxation",
+        "peace"
+      ],
+      "practices": [
+        {
+          "id": 301,
+          "title": "Practice 3A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 3.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 3.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/guided-visualization-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/guided-visualization-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/guided-visualization-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/guided-visualization-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/guided-visualization-1_alt.svg",
+          "tags": [
+            "creativity",
+            "relaxation",
+            "peace"
+          ]
+        },
+        {
+          "id": 302,
+          "title": "Practice 3B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 3.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 3.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/guided-visualization-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/guided-visualization-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/guided-visualization-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/guided-visualization-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/guided-visualization-2_alt.svg",
+          "tags": [
+            "creativity",
+            "relaxation",
+            "peace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Mantra Meditation",
+      "slug": "mantra",
+      "description": "Focus your mind by repeating a word, sound, or phrase to anchor awareness.",
+      "tags": [
+        "focus",
+        "clarity",
+        "sound"
+      ],
+      "practices": [
+        {
+          "id": 401,
+          "title": "Practice 4A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 4.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 4.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/mantra-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mantra-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mantra-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mantra-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mantra-1_alt.svg",
+          "tags": [
+            "focus",
+            "clarity",
+            "sound"
+          ]
+        },
+        {
+          "id": 402,
+          "title": "Practice 4B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 4.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 4.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/mantra-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/mantra-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/mantra-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/mantra-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/mantra-2_alt.svg",
+          "tags": [
+            "focus",
+            "clarity",
+            "sound"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Movement Meditation",
+      "slug": "movement",
+      "description": "Combine mindful movement with awareness of breath and body sensations.",
+      "tags": [
+        "energy",
+        "flow",
+        "awareness"
+      ],
+      "practices": [
+        {
+          "id": 501,
+          "title": "Practice 5A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 5.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 5.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/movement-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/movement-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/movement-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/movement-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/movement-1_alt.svg",
+          "tags": [
+            "energy",
+            "flow",
+            "awareness"
+          ]
+        },
+        {
+          "id": 502,
+          "title": "Practice 5B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 5.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 5.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/movement-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/movement-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/movement-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/movement-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/movement-2_alt.svg",
+          "tags": [
+            "energy",
+            "flow",
+            "awareness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Zen Meditation (Zazen)",
+      "slug": "zen",
+      "description": "Sit in stillness, observing thoughts and sensations without attachment.",
+      "tags": [
+        "clarity",
+        "stillness",
+        "discipline"
+      ],
+      "practices": [
+        {
+          "id": 601,
+          "title": "Practice 6A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 6.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 6.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/zen-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/zen-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/zen-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/zen-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/zen-1_alt.svg",
+          "tags": [
+            "clarity",
+            "stillness",
+            "discipline"
+          ]
+        },
+        {
+          "id": 602,
+          "title": "Practice 6B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 6.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 6.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/zen-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/zen-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/zen-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/zen-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/zen-2_alt.svg",
+          "tags": [
+            "clarity",
+            "stillness",
+            "discipline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Transcendental Meditation",
+      "slug": "transcendental",
+      "description": "A mantra-based technique that brings the mind to a state of restful alertness.",
+      "tags": [
+        "relaxation",
+        "clarity",
+        "energy"
+      ],
+      "practices": [
+        {
+          "id": 701,
+          "title": "Practice 7A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 7.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 7.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/transcendental-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/transcendental-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/transcendental-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/transcendental-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/transcendental-1_alt.svg",
+          "tags": [
+            "relaxation",
+            "clarity",
+            "energy"
+          ]
+        },
+        {
+          "id": 702,
+          "title": "Practice 7B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 7.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 7.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/transcendental-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/transcendental-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/transcendental-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/transcendental-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/transcendental-2_alt.svg",
+          "tags": [
+            "relaxation",
+            "clarity",
+            "energy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Yoga Nidra (Yogic Sleep)",
+      "slug": "yoga-nidra",
+      "description": "A guided relaxation practice between wakefulness and sleep.",
+      "tags": [
+        "sleep",
+        "relaxation",
+        "healing"
+      ],
+      "practices": [
+        {
+          "id": 801,
+          "title": "Practice 8A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 8.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 8.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/yoga-nidra-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/yoga-nidra-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/yoga-nidra-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/yoga-nidra-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/yoga-nidra-1_alt.svg",
+          "tags": [
+            "sleep",
+            "relaxation",
+            "healing"
+          ]
+        },
+        {
+          "id": 802,
+          "title": "Practice 8B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 8.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 8.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/yoga-nidra-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/yoga-nidra-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/yoga-nidra-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/yoga-nidra-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/yoga-nidra-2_alt.svg",
+          "tags": [
+            "sleep",
+            "relaxation",
+            "healing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Chakra Meditation",
+      "slug": "chakra",
+      "description": "Focus on the body's energy centers to balance and restore flow.",
+      "tags": [
+        "energy",
+        "balance",
+        "awareness"
+      ],
+      "practices": [
+        {
+          "id": 901,
+          "title": "Practice 9A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 9.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 9.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/chakra-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/chakra-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/chakra-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/chakra-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/chakra-1_alt.svg",
+          "tags": [
+            "energy",
+            "balance",
+            "awareness"
+          ]
+        },
+        {
+          "id": 902,
+          "title": "Practice 9B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 9.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 9.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/chakra-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/chakra-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/chakra-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/chakra-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/chakra-2_alt.svg",
+          "tags": [
+            "energy",
+            "balance",
+            "awareness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Sound Meditation",
+      "slug": "sound",
+      "description": "Use soothing sounds and frequencies to calm the nervous system.",
+      "tags": [
+        "peace",
+        "vibration",
+        "focus"
+      ],
+      "practices": [
+        {
+          "id": 1001,
+          "title": "Practice 10A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 10.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 10.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/sound-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/sound-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/sound-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/sound-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/sound-1_alt.svg",
+          "tags": [
+            "peace",
+            "vibration",
+            "focus"
+          ]
+        },
+        {
+          "id": 1002,
+          "title": "Practice 10B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 10.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 10.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/sound-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/sound-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/sound-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/sound-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/sound-2_alt.svg",
+          "tags": [
+            "peace",
+            "vibration",
+            "focus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Breathwork (Pranayama)",
+      "slug": "breathwork",
+      "description": "Controlled breathing exercises that balance body and mind.",
+      "tags": [
+        "balance",
+        "focus",
+        "energy"
+      ],
+      "practices": [
+        {
+          "id": 1101,
+          "title": "Practice 11A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 11.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 11.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/breathwork-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/breathwork-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/breathwork-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/breathwork-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/breathwork-1_alt.svg",
+          "tags": [
+            "balance",
+            "focus",
+            "energy"
+          ]
+        },
+        {
+          "id": 1102,
+          "title": "Practice 11B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 11.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 11.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/breathwork-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/breathwork-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/breathwork-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/breathwork-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/breathwork-2_alt.svg",
+          "tags": [
+            "balance",
+            "focus",
+            "energy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Vipassana Meditation",
+      "slug": "vipassana",
+      "description": "An insight meditation focusing on awareness of sensations and impermanence.",
+      "tags": [
+        "insight",
+        "mindfulness",
+        "clarity"
+      ],
+      "practices": [
+        {
+          "id": 1201,
+          "title": "Practice 12A",
+          "difficulty": "Beginner",
+          "benefits": [
+            "Benefit A1",
+            "Benefit A2"
+          ],
+          "description": "Description for practice A of category 12.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice A 12.",
+          "duration": "10\u201315 minutes",
+          "environment": "Calm environment",
+          "audio_url": "https://cdn.example.com/meditations/audio/vipassana-1.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/vipassana-1.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/vipassana-1.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/vipassana-1.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/vipassana-1_alt.svg",
+          "tags": [
+            "insight",
+            "mindfulness",
+            "clarity"
+          ]
+        },
+        {
+          "id": 1202,
+          "title": "Practice 12B",
+          "difficulty": "Intermediate",
+          "benefits": [
+            "Benefit B1",
+            "Benefit B2"
+          ],
+          "description": "Description for practice B of category 12.",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "affirmation": "Affirmation for practice B 12.",
+          "duration": "15\u201320 minutes",
+          "environment": "Comfortable place",
+          "audio_url": "https://cdn.example.com/meditations/audio/vipassana-2.mp3",
+          "video_url": "https://cdn.example.com/meditations/video/vipassana-2.mp4",
+          "url_png": "https://cdn.example.com/meditations/illustrations/vipassana-2.png",
+          "url_svg": "https://cdn.example.com/meditations/illustrations/vipassana-2.svg",
+          "url_svg_alt": "https://cdn.example.com/meditations/illustrations/vipassana-2_alt.svg",
+          "tags": [
+            "insight",
+            "mindfulness",
+            "clarity"
+          ]
+        }
+      ]
+    }
+  ]
+}

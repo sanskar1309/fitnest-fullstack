@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY; // Use service role key for inserts
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY; // Use service role key for migration
 
 if (!supabaseUrl || !supabaseKey) {
   throw new Error('Missing Supabase environment variables');
@@ -38,6 +38,21 @@ interface TransitivePose {
   [key: string]: any;
 }
 
+interface MeditationCategory {
+  id: number;
+  category_name: string;
+  category_description: string;
+}
+
+interface MeditationPractice {
+  id: number;
+  category_id: number;
+  english_name: string;
+  practice_benefits: string;
+  practice_description: string;
+  suggested_duration: string;
+}
+
 async function migrateData() {
   try {
     // Clear existing data to avoid duplicates
@@ -45,6 +60,8 @@ async function migrateData() {
     await supabase.from('categories').delete().neq('id', 0);
     await supabase.from('poses').delete().neq('id', 0);
     await supabase.from('difficulty').delete().neq('id', 0);
+    await supabase.from('meditation_practices').delete().neq('id', 0);
+    await supabase.from('meditation_categories').delete().neq('id', 0);
     console.log('Existing data cleared');
 
     // Insert difficulty levels first
@@ -70,6 +87,18 @@ async function migrateData() {
     const { error: transError } = await supabase.from('transitive_poses').insert(transitiveData);
     if (transError) throw transError;
     console.log('Transitive poses data inserted');
+
+    // Insert meditation categories
+    const meditationCategoriesData: MeditationCategory[] = JSON.parse(fs.readFileSync('meditation_categories.json', 'utf8'));
+    const { error: medCatError } = await supabase.from('meditation_categories').insert(meditationCategoriesData);
+    if (medCatError) throw medCatError;
+    console.log('Meditation categories data inserted');
+
+    // Insert meditation practices
+    const meditationPracticesData: MeditationPractice[] = JSON.parse(fs.readFileSync('meditation_practices.json', 'utf8'));
+    const { error: medPracError } = await supabase.from('meditation_practices').insert(meditationPracticesData);
+    if (medPracError) throw medPracError;
+    console.log('Meditation practices data inserted');
 
     console.log('Migration completed successfully!');
   } catch (error) {
