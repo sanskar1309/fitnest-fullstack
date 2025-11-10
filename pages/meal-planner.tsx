@@ -275,9 +275,11 @@ export default function MealPlanner() {
                     </Button>
                   </div>
                   {error && (
-                    <p className="text-red-500 text-sm mt-4 text-center">
-                      {error}
-                    </p>
+                    <div className="mt-4 p-4 rounded bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700">
+                      <p className="text-red-700 dark:text-red-300 text-sm text-center">
+                        An error occurred while generating the meal plan. Please try again.
+                      </p>
+                    </div>
                   )}
                   {showSavedPlans && (
                     <div className="mt-6">
@@ -427,9 +429,9 @@ export default function MealPlanner() {
                         <div className="mt-6">
                           <h2 className="text-lg font-semibold mb-2">Meal Plan</h2>
                           {parsed.overall_macros && (
-                            <div className="mb-4 p-4 rounded bg-blue-50 border border-blue-200">
-                              <h3 className="font-semibold mb-1">Overall Macros</h3>
-                              <p>
+                            <div className="mb-4 p-4 rounded bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700">
+                              <h3 className="font-semibold mb-1 text-foreground">Overall Macros</h3>
+                              <p className="text-foreground">
                                 Protein:{" "}
                                 <span className="font-semibold">
                                   {parsed.overall_macros.protein}
@@ -451,27 +453,27 @@ export default function MealPlanner() {
                           )}
                           <div className="space-y-4">
                             {mealArr.map((meal: any, idx: number) => (
-                              <Card key={idx} className="border p-4 rounded">
+                              <Card key={idx} className="border dark:border-gray-700 p-4 rounded">
                                 <CardHeader>
-                                  <CardTitle className="text-lg font-bold">{meal.name}</CardTitle>
+                                  <CardTitle className="text-lg font-bold text-foreground">{meal.name}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                  <p className="text-sm text-gray-500 capitalize mb-1">Timing: {meal.meal_timing}</p>
-                                  <p className="mb-1">Calories: {meal.calories}</p>
+                                  <p className="text-sm text-muted-foreground capitalize mb-1">Timing: {meal.meal_timing}</p>
+                                  <p className="mb-1 text-foreground">Calories: {meal.calories}</p>
                                   {meal.macronutrients && (
-                                    <p className="mb-1">
+                                    <p className="mb-1 text-foreground">
                                       Macronutrients: Protein: {meal.macronutrients.protein}, Carbs: {meal.macronutrients.carbs}, Fats: {meal.macronutrients.fats}, Fiber: {meal.macronutrients.fiber}
                                     </p>
                                   )}
                                   {meal.macronutrient_breakdown && (
-                                    <p className="mb-1">
+                                    <p className="mb-1 text-foreground">
                                       Macronutrients: Protein: {meal.macronutrient_breakdown.protein}, Carbs: {meal.macronutrient_breakdown.carbs}, Fats: {meal.macronutrient_breakdown.fats}, Fiber: {meal.macronutrient_breakdown.fiber}
                                     </p>
                                   )}
                                   {meal.ingredients && (
                                     <div className="mb-1">
-                                      <h4 className="font-semibold mt-2">Ingredients:</h4>
-                                      <ul className="list-disc ml-5">
+                                      <h4 className="font-semibold mt-2 text-foreground">Ingredients:</h4>
+                                      <ul className="list-disc ml-5 text-foreground">
                                         {meal.ingredients.map((ingredient: string, i: number) => (
                                           <li key={i}>{ingredient}</li>
                                         ))}
@@ -480,8 +482,8 @@ export default function MealPlanner() {
                                   )}
                                   {meal.cooking_instructions && (
                                     <div>
-                                      <h4 className="font-semibold mt-2">Cooking Instructions:</h4>
-                                      <p>
+                                      <h4 className="font-semibold mt-2 text-foreground">Cooking Instructions:</h4>
+                                      <p className="text-foreground">
                                         {Array.isArray(meal.cooking_instructions)
                                           ? meal.cooking_instructions.join(" ")
                                           : meal.cooking_instructions}
