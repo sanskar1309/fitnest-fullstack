@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ChefHat, Utensils, ArrowLeft } from "lucide-react";
+import { ChefHat, Utensils, ArrowLeft, Save, Trash2, FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { LottieLoader } from "@/components/ui/LottieLoader";
+import cookingAnimation from "../public/Cooking.json";
 
 export default function MealPlanner() {
   const [cuisine, setCuisine] = useState("");
@@ -25,6 +27,41 @@ export default function MealPlanner() {
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [savedPlans, setSavedPlans] = useState<any[]>([]);
+  const [showSavedPlans, setShowSavedPlans] = useState(false);
+
+  useEffect(() => {
+    const plans = localStorage.getItem("savedMealPlans");
+    if (plans) {
+      setSavedPlans(JSON.parse(plans));
+    }
+  }, []);
+
+  const saveMealPlan = () => {
+    if (!result) return;
+    const planName = prompt("Enter a name for your meal plan:");
+    if (!planName) return;
+    const newPlan = {
+      id: Date.now(),
+      name: planName,
+      data: result,
+      timestamp: new Date().toISOString(),
+    };
+    const updatedPlans = [...savedPlans, newPlan];
+    setSavedPlans(updatedPlans);
+    localStorage.setItem("savedMealPlans", JSON.stringify(updatedPlans));
+  };
+
+  const loadMealPlan = (plan: any) => {
+    setResult(plan.data);
+    setShowSavedPlans(false);
+  };
+
+  const deleteMealPlan = (id: number) => {
+    const updatedPlans = savedPlans.filter(plan => plan.id !== id);
+    setSavedPlans(updatedPlans);
+    localStorage.setItem("savedMealPlans", JSON.stringify(updatedPlans));
+  };
 
   const resetPlanner = () => {
     setCuisine("");
@@ -226,10 +263,59 @@ export default function MealPlanner() {
                       Reset
                     </Button>
                   </div>
+                  <div className="flex space-x-3 mt-4">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setShowSavedPlans(!showSavedPlans)}
+                      className="flex-1"
+                    >
+                      <FolderOpen className="w-4 h-4 mr-2" />
+                      {showSavedPlans ? "Hide Saved Plans" : "View Saved Plans"}
+                    </Button>
+                  </div>
                   {error && (
                     <p className="text-red-500 text-sm mt-4 text-center">
                       {error}
                     </p>
+                  )}
+                  {showSavedPlans && (
+                    <div className="mt-6">
+                      <h3 className="text-lg font-semibold mb-4">Saved Meal Plans</h3>
+                      {savedPlans.length === 0 ? (
+                        <p className="text-muted-foreground">No saved plans yet.</p>
+                      ) : (
+                        <div className="space-y-2">
+                          {savedPlans.map((plan) => (
+                            <Card key={plan.id} className="p-4">
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <h4 className="font-semibold">{plan.name}</h4>
+                                  <p className="text-sm text-muted-foreground">
+                                    Saved on {new Date(plan.timestamp).toLocaleDateString()}
+                                  </p>
+                                </div>
+                                <div className="flex space-x-2">
+                                  <Button
+                                    size="sm"
+                                    onClick={() => loadMealPlan(plan)}
+                                  >
+                                    Load
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    variant="destructive"
+                                    onClick={() => deleteMealPlan(plan.id)}
+                                  >
+                                    <Trash2 className="w-4 h-4" />
+                                  </Button>
+                                </div>
+                              </div>
+                            </Card>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   )}
                 </form>
               </CardContent>
@@ -242,7 +328,23 @@ export default function MealPlanner() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            {result ? (
+            {loading ? (
+              <Card className="shadow-secondary">
+                <CardContent className="flex items-center justify-center h-full py-16">
+                  <div className="text-center space-y-4">
+                    <LottieLoader animationData={cookingAnimation} />
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">
+                        Generating Your Meal Plan
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Please wait while we create your personalized plan...
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ) : result ? (
               <Card className="shadow-secondary border-l-4 border-l-primary">
                 <CardHeader>
                   <div className="flex items-center justify-between">
@@ -258,6 +360,16 @@ export default function MealPlanner() {
                     <Badge variant="default">
                       {goal ? goal.replace("_", " ") : ""}
                     </Badge>
+                  </div>
+                  <div className="flex justify-end mt-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={saveMealPlan}
+                    >
+                      <Save className="w-4 h-4 mr-2" />
+                      Save Meal Plan
+                    </Button>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">

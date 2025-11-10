@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import animationData from "../../../public/Run Forrest Run.json";
+import defaultAnimationData from "../../../public/Run Forrest Run.json";
 import { useTheme } from "@/components/theme/ThemeProvider";
 
-export function LottieLoader() {
+interface LottieLoaderProps {
+  animationData?: any;
+}
+
+export function LottieLoader({ animationData = defaultAnimationData }: LottieLoaderProps) {
   const { theme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
