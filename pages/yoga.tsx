@@ -71,7 +71,7 @@ export default function Yoga() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gradient-hero">
       {loading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-background/30 backdrop-blur-sm z-50">
           <LottieLoader />
         </div>
       )}
