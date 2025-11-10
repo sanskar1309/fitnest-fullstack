@@ -45,6 +45,7 @@ export default function MealPlanner() {
       id: Date.now(),
       name: planName,
       data: result,
+      goal: goal,
       timestamp: new Date().toISOString(),
     };
     const updatedPlans = [...savedPlans, newPlan];
@@ -54,6 +55,11 @@ export default function MealPlanner() {
 
   const loadMealPlan = (plan: any) => {
     setResult(plan.data);
+    // If the user hasn't set a goal in the current form, use the saved plan's goal
+    // Prefer plan.goal (saved metadata), fall back to plan.data.goal (embedded in saved data)
+    if (!goal) {
+      setGoal(plan.goal ?? (plan.data && plan.data.goal) ?? "");
+    }
     setShowSavedPlans(false);
   };
 
@@ -216,6 +222,7 @@ export default function MealPlanner() {
                       <SelectItem value="muscle_gain">Muscle Gain</SelectItem>
                       <SelectItem value="fat_loss">Fat Loss</SelectItem>
                       <SelectItem value="maintenance">Maintenance</SelectItem>
+                      <SelectItem value="body_recomposition">Body Recomposition</SelectItem>
                     </SelectContent>
                   </Select>
                   <div className="space-y-2">
@@ -293,6 +300,9 @@ export default function MealPlanner() {
                               <div className="flex items-center justify-between">
                                 <div>
                                   <h4 className="font-semibold">{plan.name}</h4>
+                                  <p className="text-sm text-muted-foreground">
+                                    Goal: {plan.goal ? plan.goal.replace("_", " ") : "N/A"}
+                                  </p>
                                   <p className="text-sm text-muted-foreground">
                                     Saved on {new Date(plan.timestamp).toLocaleDateString()}
                                   </p>
