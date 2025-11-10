@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import animationData from "../../../public/Run Forrest Run.json";
 import { useTheme } from "@/components/theme/ThemeProvider";
 
 export function LottieLoader() {
   const { theme } = useTheme();
+  const [isDark, setIsDark] = useState(false);
 
-  // Determine if dark mode is active
-  const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  useEffect(() => {
+    if (theme === "system") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      setIsDark(mediaQuery.matches);
+    } else {
+      setIsDark(theme === "dark");
+    }
+  }, [theme]);
 
   return (
     <div className="w-40 h-40 mx-auto">
