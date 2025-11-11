@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from 'next/head'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Zap, Info, Activity, Flame } from "lucide-react";
 import { motion } from "framer-motion";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface BMRResult {
   bmr: number;
@@ -86,6 +88,19 @@ export default function BMR() {
 
   return (
     <div className="min-h-screen py-12 bg-gradient-hero">
+      <Head>
+        <title>BMR Calculator — Fitnest</title>
+        <meta name="description" content="Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) to estimate daily calorie needs." />
+        <link rel="canonical" href="https://fitnest-fullstack.vercel.app/bmr" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Fitnest BMR Calculator",
+          "url": "https://fitnest-fullstack.vercel.app/bmr",
+          "description": "BMR calculator to estimate basal metabolic rate and calorie needs.",
+          "applicationCategory": "HealthApplication"
+        }) }} />
+      </Head>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -353,20 +368,8 @@ export default function BMR() {
               </>
             ) : (
               <Card className="shadow-secondary">
-                <CardContent className="flex items-center justify-center h-full py-16">
-                  <div className="text-center space-y-4">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto">
-                      <Zap className="w-10 h-10 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
-                        Enter Your Details
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Fill in your information to calculate your BMR and daily calorie needs
-                      </p>
-                    </div>
-                  </div>
+                <CardContent className="py-8">
+                  <Skeleton className="h-64 rounded-lg" />
                 </CardContent>
               </Card>
             )}

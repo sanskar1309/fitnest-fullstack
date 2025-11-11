@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from 'next/head'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Calculator, Target, TrendingUp, Utensils } from "lucide-react";
 import { motion } from "framer-motion";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface NutritionResult {
   calories: number;
@@ -144,6 +146,19 @@ export default function Nutrition() {
 
   return (
     <div className="min-h-screen py-12 bg-gradient-hero">
+      <Head>
+        <title>Nutrition Calculator — Fitnest</title>
+        <meta name="description" content="Get personalized calorie and macro targets based on your profile and goals with Fitnest Nutrition Calculator." />
+        <link rel="canonical" href="https://fitnest-fullstack.vercel.app/nutrition" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Fitnest Nutrition Calculator",
+          "url": "https://fitnest-fullstack.vercel.app/nutrition",
+          "description": "Nutrition calculator providing calorie and macronutrient targets.",
+          "applicationCategory": "HealthApplication"
+        }) }} />
+      </Head>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -426,20 +441,8 @@ export default function Nutrition() {
               </Card>
             ) : (
               <Card className="shadow-secondary">
-                <CardContent className="flex items-center justify-center h-full py-16">
-                  <div className="text-center space-y-4">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto">
-                      <Calculator className="w-10 h-10 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
-                        Enter Your Details
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Fill in your information to get personalized nutrition targets
-                      </p>
-                    </div>
-                  </div>
+                <CardContent className="py-8">
+                  <Skeleton className="h-64 rounded-lg" />
                 </CardContent>
               </Card>
             )}
