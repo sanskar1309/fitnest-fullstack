@@ -41,7 +41,7 @@ export const Footer = () => {
                 <Activity className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                Your Fitness Buddy
+                Fitnest
               </span>
             </Link>
             <p className="text-muted-foreground mb-4 max-w-md">
@@ -109,7 +109,7 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2025 Your Fitness Buddy. All rights reserved.
+            © 2025 Fitnest. All rights reserved.
           </p>
           
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">

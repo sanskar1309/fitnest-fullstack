@@ -116,7 +116,7 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
                 Your{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Fitness Buddy
+                  Fitness Guide
                 </span>
               </h1>
 
@@ -336,7 +336,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of users who have transformed their lives with Your Fitness Buddy
+              Join thousands of users who have transformed their lives with Fitnest
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="shadow-primary" asChild>

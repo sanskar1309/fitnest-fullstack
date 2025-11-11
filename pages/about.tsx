@@ -22,17 +22,16 @@ export default function About() {
               About Us
             </CardTitle>
             <CardDescription>
-              Coming Soon - Learn more about Your Fitness Buddy
+              At Fitnest, we believe in the power of fitness to transform lives. Our platform is dedicated to providing you with the resources and guidance you need to achieve your health and wellness goals. Whether you're a beginner or a seasoned fitness enthusiast, we are here to inspire and motivate you on your journey.
+              <br />
+              This project is built by a fellow fitness enthusiast who understands the challenges and triumphs of maintaining a healthy lifestyle. Our mission is to create a space where everyone can find their path to fitness and celebrate their progress together.
+              <br />
+              Join us as we embark on this journey towards better health and well-being. Together, we can make fitness a part of our everyday lives! 
             </CardDescription>
           </CardHeader>
 
           <CardContent className="space-y-6">
             <div className="text-center space-y-4">
-              <p className="text-muted-foreground">
-                We're preparing an exciting about page to tell you more about our mission and team.
-                Stay tuned!
-              </p>
-
               <Button asChild className="shadow-primary">
                 <Link href="/">
                   <ArrowLeft className="w-4 h-4 mr-2" />
