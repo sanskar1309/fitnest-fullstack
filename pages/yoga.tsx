@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { ProtectedRoute } from "../src/components/ProtectedRoute";
 import {
   Dialog,
   DialogContent,
@@ -32,6 +33,14 @@ interface Category {
 }
 
 export default function Yoga() {
+  return (
+    <ProtectedRoute>
+      <YogaContent />
+    </ProtectedRoute>
+  );
+}
+
+function YogaContent() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [loading, setLoading] = useState(false);

@@ -8,16 +8,21 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Activity, Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
+import { useAuth } from "../src/contexts/AuthContext";
+import { toast } from "../src/hooks/use-toast";
 
 export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) {
   const router = useRouter();
   const mode = propMode || (router.query.mode === "signup" ? "signup" : "login");
+  const { signIn, signUp, resetPassword } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
 
   const isLogin = mode === "login";
 
@@ -25,12 +30,54 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      if (isLogin) {
+        const { error } = await signIn(email, password);
+        if (error) {
+          toast({
+            title: "Login Failed",
+            description: error.message,
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Login Successful",
+            description: "Welcome back!",
+          });
+          const redirectTo = router.query.redirect as string || "/";
+          router.push(redirectTo);
+        }
+      } else {
+        const { data, error } = await signUp(email, password, name);
+        if (error) {
+          toast({
+            title: "Signup Failed",
+            description: error.message,
+            variant: "destructive",
+          });
+        } else if (data && data.user) {
+          toast({
+            title: "Signup Successful",
+            description: "Please check your email and click the confirmation link to complete your registration.",
+          });
+        } else {
+          // This shouldn't happen, but handle it just in case
+          toast({
+            title: "Signup Failed",
+            description: "An unexpected error occurred. Please try again.",
+            variant: "destructive",
+          });
+        }
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-      // Handle authentication here
-      console.log({ email, password, name });
-    }, 1000);
+    }
   };
 
   return (
@@ -135,22 +182,14 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
 
               {isLogin && (
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <input
-                      id="remember"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-border"
-                    />
-                    <Label htmlFor="remember" className="text-sm">
-                      Remember me
-                    </Label>
-                  </div>
-                  <Link
-                    href="/forgot-password"
+                  <div />
+                  <button
+                    type="button"
+                    onClick={() => setShowForgotPassword(true)}
                     className="text-sm text-primary hover:underline"
                   >
                     Forgot password?
-                  </Link>
+                  </button>
                 </div>
               )}
 
@@ -170,16 +209,16 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
               </Button>
             </form>
 
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <Separator className="w-full" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
               </div>
-            </div>
+            </div> */}
 
-            <div className="grid grid-cols-2 gap-3">
+            {/* <div className="grid grid-cols-2 gap-3">
               <Button variant="outline" type="button" disabled={isLoading}>
                 <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                   <path
@@ -207,7 +246,7 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
                 </svg>
                 Facebook
               </Button>
-            </div>
+            </div> */}
 
             <div className="text-center text-sm">
               <span className="text-muted-foreground">
@@ -236,6 +275,90 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
                 </Link>
                 .
               </p>
+            )}
+
+            {showForgotPassword && (
+              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                <Card className="w-full max-w-md mx-4">
+                  <CardHeader>
+                    <CardTitle>Reset Password</CardTitle>
+                    <CardDescription>
+                      Enter your email address and we'll send you a link to reset your password.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="resetEmail">Email</Label>
+                      <Input
+                        id="resetEmail"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={resetEmail}
+                        onChange={(e) => setResetEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="flex space-x-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => {
+                          setShowForgotPassword(false);
+                          setResetEmail("");
+                        }}
+                        className="flex-1"
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        type="button"
+                        onClick={async (e) => {
+                          e.preventDefault();
+                          if (!resetEmail) {
+                            toast({
+                              title: "Email Required",
+                              description: "Please enter your email address.",
+                              variant: "destructive",
+                            });
+                            return;
+                          }
+
+                          setIsLoading(true);
+                          try {
+                            const { error } = await resetPassword(resetEmail);
+                            if (error) {
+                              toast({
+                                title: "Reset Failed",
+                                description: error.message,
+                                variant: "destructive",
+                              });
+                            } else {
+                              toast({
+                                title: "Reset Email Sent",
+                                description: "Check your email for password reset instructions.",
+                              });
+                              setShowForgotPassword(false);
+                              setResetEmail("");
+                            }
+                          } catch (error) {
+                            toast({
+                              title: "Error",
+                              description: "An unexpected error occurred. Please try again.",
+                              variant: "destructive",
+                            });
+                          } finally {
+                            setIsLoading(false);
+                          }
+                        }}
+                        disabled={isLoading}
+                        className="flex-1"
+                      >
+                        {isLoading ? "Sending..." : "Send Reset Link"}
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             )}
           </CardContent>
         </Card>

@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+import { ProtectedRoute } from "../src/components/ProtectedRoute";
 import {
   Dialog,
   DialogContent,
@@ -45,6 +46,14 @@ interface Mood {
 }
 
 export default function Meditation() {
+  return (
+    <ProtectedRoute>
+      <MeditationContent />
+    </ProtectedRoute>
+  );
+}
+
+function MeditationContent() {
   const [categories, setCategories] = useState<MeditationCategory[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<MeditationCategory | null>(null);
   const [loading, setLoading] = useState(false);
