@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import defaultAnimationData from "../../../public/Run Forrest Run.json";
+import defaultAnimationData from "../../../public/Box Breathing V6.json";
 import { useTheme } from "@/components/theme/ThemeProvider";
 
 interface LottieLoaderProps {
