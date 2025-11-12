@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -95,10 +96,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/fitness-hero.jpg"
             alt="Fitness lifestyle"
             className="w-full h-full object-cover opacity-20"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">

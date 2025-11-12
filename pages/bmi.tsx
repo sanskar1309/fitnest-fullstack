@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from 'next/head'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Calculator, Info, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface BMIResult {
   bmi: number;
@@ -118,6 +120,19 @@ export default function BMI() {
 
   return (
     <div className="min-h-screen py-12 bg-gradient-hero">
+      <Head>
+        <title>BMI Calculator — Fitnest</title>
+        <meta name="description" content="Calculate your Body Mass Index (BMI) and get personalized recommendations to improve health." />
+        <link rel="canonical" href="https://fitnest-fullstack.vercel.app/bmi" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Fitnest BMI Calculator",
+          "url": "https://fitnest-fullstack.vercel.app/bmi",
+          "description": "BMI calculator to estimate body mass index and provide health recommendations.",
+          "applicationCategory": "HealthApplication"
+        }) }} />
+      </Head>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -303,20 +318,8 @@ export default function BMI() {
               </Card>
             ) : (
               <Card className="shadow-secondary">
-                <CardContent className="flex items-center justify-center h-full py-16">
-                  <div className="text-center space-y-4">
-                    <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto">
-                      <Calculator className="w-10 h-10 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
-                        Enter Your Measurements
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Fill in your height and weight to calculate your BMI
-                      </p>
-                    </div>
-                  </div>
+                <CardContent className="py-8">
+                  <Skeleton className="h-64 rounded-lg" />
                 </CardContent>
               </Card>
             )}

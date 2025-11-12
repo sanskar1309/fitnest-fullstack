@@ -2,8 +2,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { Menu, X, Activity } from "lucide-react";
+import { Menu, X, Activity, LogOut, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "../../contexts/AuthContext";
+import { toast } from "../../hooks/use-toast";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -19,6 +21,23 @@ const navigation = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      toast({
+        title: "Signed out",
+        description: "You have been successfully signed out.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to sign out.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -51,12 +70,27 @@ export const Header = () => {
           {/* Right side actions */}
           <div className="hidden lg:flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="outline" asChild>
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/signup">Sign Up</Link>
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-sm">
+                  <User className="w-4 h-4" />
+                  <span>{user.user_metadata?.name || user.email}</span>
+                </div>
+                <Button variant="outline" onClick={handleSignOut}>
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Button variant="outline" asChild>
+                  <Link href="/login">Login</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -130,16 +164,31 @@ export const Header = () => {
                   transition={{ delay: navigation.length * 0.1, duration: 0.2 }}
                   className="pt-4 space-y-2"
                 >
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
-                      Login
-                    </Link>
-                  </Button>
-                  <Button className="w-full" asChild>
-                    <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
-                      Sign Up
-                    </Link>
-                  </Button>
+                  {user ? (
+                    <>
+                      <div className="flex items-center space-x-2 px-3 py-2 text-sm">
+                        <User className="w-4 h-4" />
+                        <span>{user.user_metadata?.name || user.email}</span>
+                      </div>
+                      <Button variant="outline" className="w-full" onClick={() => { handleSignOut(); setMobileMenuOpen(false); }}>
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Sign Out
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button variant="outline" className="w-full" asChild>
+                        <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                          Login
+                        </Link>
+                      </Button>
+                      <Button className="w-full" asChild>
+                        <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
+                          Sign Up
+                        </Link>
+                      </Button>
+                    </>
+                  )}
                 </motion.div>
               </div>
             </motion.div>

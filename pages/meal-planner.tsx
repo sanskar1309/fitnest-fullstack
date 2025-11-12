@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ProtectedRoute } from "../src/components/ProtectedRoute";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,6 +15,14 @@ import { LottieLoader } from "@/components/ui/LottieLoader";
 import cookingAnimation from "../public/Cooking.json";
 
 export default function MealPlanner() {
+  return (
+    <ProtectedRoute>
+      <MealPlannerContent />
+    </ProtectedRoute>
+  );
+}
+
+function MealPlannerContent() {
   const [cuisine, setCuisine] = useState("");
   const [allergies, setAllergies] = useState("");
   const [age, setAge] = useState("");
