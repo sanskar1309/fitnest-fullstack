@@ -99,32 +99,33 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       }
 
       // First check if user already exists
-      const checkResponse = await fetch('/api/check-user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: trimmedEmail }),
-      });
+      try {
+        const checkResponse = await fetch('/api/check-user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: trimmedEmail }),
+        });
 
-      if (!checkResponse.ok) {
-        return {
-          data: null,
-          error: {
-            message: 'Failed to check user existence. Please try again.',
-          } as any,
-        };
-      }
+        if (checkResponse.ok) {
+          const checkData = await checkResponse.json();
 
-      const checkData = await checkResponse.json();
-
-      if (checkData.exists) {
-        return {
-          data: null,
-          error: {
-            message: 'An account with this email already exists. Please sign in instead.',
-          } as any,
-        };
+          if (checkData.exists) {
+            return {
+              data: null,
+              error: {
+                message: 'An account with this email already exists. Please sign in instead.',
+              } as any,
+            };
+          }
+        } else {
+          // Log the error but don't block signup
+          console.warn('Failed to check user existence, proceeding with signup:', await checkResponse.text());
+        }
+      } catch (checkError) {
+        // Log the error but don't block signup
+        console.warn('Error checking user existence, proceeding with signup:', checkError);
       }
 
       // Proceed with signup if email doesn't exist
