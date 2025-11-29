@@ -15,6 +15,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useAuth } from "../src/contexts/AuthContext";
 
 const features = [
   {
@@ -91,6 +92,8 @@ const stats = [
 ];
 
 export default function Home() {
+  const { user } = useAuth();
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -343,12 +346,14 @@ export default function Home() {
               Join thousands of users who have transformed their lives with Fitnest
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-primary" asChild>
-                <Link href="/signup">
-                  Start Free Today
-                  <ChevronRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
+              {!user && (
+                <Button size="lg" className="shadow-primary" asChild>
+                  <Link href="/signup">
+                    Start Free Today
+                    <ChevronRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              )}
               <Button size="lg" variant="outline" asChild>
                 <Link href="/bmi">Try BMI Calculator</Link>
               </Button>

@@ -106,12 +106,12 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
             © 2025 Fitnest. All rights reserved.
           </p>
           
-          <div className="flex items-center space-x-4 mt-4 sm:mt-0">
+          {/* <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             {socialLinks.map((social) => (
               <Button
                 key={social.name}
@@ -130,7 +130,7 @@ export const Footer = () => {
                 </a>
               </Button>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

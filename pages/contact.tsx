@@ -32,26 +32,26 @@ export default function Contact() {
                 <Mail className="w-5 h-5 text-primary" />
                 <div>
                   <p className="font-medium">Email</p>
-                  <p className="text-muted-foreground">info@fitnest.com</p>
+                  <p className="text-muted-foreground">rmaharwade@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary" />
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                  <p className="text-muted-foreground">+91-9340894436</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 md:col-span-2">
                 <MapPin className="w-5 h-5 text-primary" />
                 <div>
                   <p className="font-medium">Address</p>
-                  <p className="text-muted-foreground">123 Fitness Street, Wellness City, WC 12345</p>
+                  <p className="text-muted-foreground">Jamkot Para, Kondagaon (494226)</p>
                 </div>
               </div>
             </div>
 
-            <div className="text-center">
+            {/* <div className="text-center">
               <p className="font-medium mb-4">Follow Us</p>
               <div className="flex justify-center space-x-4">
                 <Button variant="ghost" size="sm" asChild>
@@ -70,7 +70,7 @@ export default function Contact() {
                   </a>
                 </Button>
               </div>
-            </div>
+            </div> */}
 
             <div className="text-center space-y-4">
               <Button asChild className="shadow-primary">
