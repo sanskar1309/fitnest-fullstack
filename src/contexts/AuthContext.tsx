@@ -51,13 +51,25 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUser(session?.user ?? null);
         setLoading(false);
 
+        // Only navigate on SIGNED_IN if the user has just completed an explicit
+        // sign-in flow (i.e. there's a redirect query or the current pathname
+        // is a login/auth page). Avoid navigating on silent rehydration/token
+        // refresh events which can otherwise cause unexpected redirects when
+        // users switch tabs.
         if (event === 'SIGNED_IN') {
-          // Redirect to intended page or home
-          const redirectTo = router.query.redirect as string || '/';
-          router.push(redirectTo);
-        } else if (event === 'SIGNED_OUT') {
-          router.push('/');
+          const redirectTo = router.query.redirect as string | undefined;
+          const onAuthPage = router.pathname.startsWith('/auth') || router.pathname === '/login';
+
+          if (redirectTo || onAuthPage) {
+            // Redirect only when explicit (redirect param or auth page)
+            const target = redirectTo ?? '/';
+            router.push(target);
+          }
         }
+        // Do not automatically redirect to home on SIGNED_OUT — let
+        // `ProtectedRoute` or explicit signOut flows handle navigation so the
+        // user does not get unexpectedly redirected when the session is
+        // refreshed or temporarily becomes unavailable.
       }
     );
 
@@ -182,7 +194,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const signOut = async () => {
+    // Perform the actual sign out and navigate explicitly — this avoids
+    // coupling the subscription's SIGNED_OUT event (which can fire on
+    // silent/session changes) with navigation logic.
     await supabase.auth.signOut();
+    router.push('/');
   };
 
   const resetPassword = async (email: string) => {
