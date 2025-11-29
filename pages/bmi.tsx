@@ -5,7 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Info, TrendingUp } from "lucide-react";
+import { Calculator, Info, TrendingUp, Utensils } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -317,9 +318,25 @@ export default function BMI() {
                 </CardContent>
               </Card>
             ) : (
-              <Card className="shadow-secondary">
-                <CardContent className="py-8">
-                  <Skeleton className="h-64 rounded-lg" />
+              <Card className="shadow-secondary border-l-4 border-l-primary">
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-10 h-10 bg-gradient-secondary rounded-lg flex items-center justify-center">
+                      <Utensils className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle>Try AI Meal Planner</CardTitle>
+                      <CardDescription>Get personalized meal plans based on your results</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="py-6">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Want meal recommendations tailored to your BMI and goals? Use our AI Meal Planner to generate simple, balanced meal plans and recipes.
+                  </p>
+                  <Link href="/meal-planner">
+                    <Button className="shadow-primary">Open AI Meal Planner</Button>
+                  </Link>
                 </CardContent>
               </Card>
             )}

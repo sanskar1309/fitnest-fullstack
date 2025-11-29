@@ -7,7 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Zap, Info, Activity, Flame } from "lucide-react";
+import { Zap, Info, Activity, Flame, Utensils } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -367,9 +368,25 @@ export default function BMR() {
                 </Card>
               </>
             ) : (
-              <Card className="shadow-secondary">
-                <CardContent className="py-8">
-                  <Skeleton className="h-64 rounded-lg" />
+              <Card className="shadow-secondary border-l-4 border-l-primary">
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-10 h-10 bg-gradient-secondary rounded-lg flex items-center justify-center">
+                      <Utensils className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle>Try AI Meal Planner</CardTitle>
+                      <CardDescription>Use your BMR & TDEE to craft a meal plan</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="py-6">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Want individualized meal plans tailored to your calculated daily calorie needs? Our AI Meal Planner can create tasty, balanced options.
+                  </p>
+                  <Link href="/meal-planner">
+                    <Button className="shadow-primary">Open AI Meal Planner</Button>
+                  </Link>
                 </CardContent>
               </Card>
             )}

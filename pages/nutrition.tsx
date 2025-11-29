@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Calculator, Target, TrendingUp, Utensils } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -440,9 +441,25 @@ export default function Nutrition() {
                 </CardContent>
               </Card>
             ) : (
-              <Card className="shadow-secondary">
-                <CardContent className="py-8">
-                  <Skeleton className="h-64 rounded-lg" />
+              <Card className="shadow-secondary border-l-4 border-l-primary">
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-10 h-10 bg-gradient-secondary rounded-lg flex items-center justify-center">
+                      <Utensils className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle>Try AI Meal Planner</CardTitle>
+                      <CardDescription>Turn your nutrient targets into actual meals</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="py-6">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Found your calorie & macro targets? Use the AI Meal Planner to convert those numbers into a full meal plan and recipes that match your goals.
+                  </p>
+                  <Link href="/meal-planner">
+                    <Button className="shadow-primary">Open AI Meal Planner</Button>
+                  </Link>
                 </CardContent>
               </Card>
             )}
