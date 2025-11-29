@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChefHat, Utensils, ArrowLeft, Save, Trash2, FolderOpen } from "lucide-react";
 import { motion } from "framer-motion";
@@ -166,76 +167,109 @@ function MealPlannerContent() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                <form className="space-y-4">
-                  <Input
-                    type="text"
-                    value={cuisine}
-                    onChange={e => setCuisine(e.target.value)}
-                    placeholder="Preferred Cuisine (e.g., Italian, Indian)"
-                  />
-                  <Input
-                    type="text"
-                    value={allergies}
-                    onChange={e => setAllergies(e.target.value)}
-                    placeholder="Allergies (comma separated)"
-                  />
-                  <Input
-                    type="number"
-                    value={age}
-                    onChange={e => setAge(e.target.value)}
-                    placeholder="Age"
-                  />
-                  <Select value={gender} onValueChange={setGender}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Gender" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="male">Male</SelectItem>
-                      <SelectItem value="female">Female</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Input
-                    type="number"
-                    value={height}
-                    onChange={e => setHeight(e.target.value)}
-                    placeholder="Height (cm)"
-                  />
-                  <Input
-                    type="number"
-                    value={weight}
-                    onChange={e => setWeight(e.target.value)}
-                    placeholder="Weight (kg)"
-                  />
-                  <Input
-                    type="number"
-                    value={calories}
-                    onChange={e => setCalories(e.target.value)}
-                    placeholder="Target Calories"
-                  />
-                  <Select value={dietType} onValueChange={setDietType}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Diet Type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="veg">Vegetarian</SelectItem>
-                      <SelectItem value="non-veg">Non-Vegetarian</SelectItem>
-                      <SelectItem value="vegan">Vegan</SelectItem>
-                      <SelectItem value="eggs_only">Vegetarian with Eggs</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Select value={goal} onValueChange={setGoal}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Goal" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="muscle_gain">Muscle Gain</SelectItem>
-                      <SelectItem value="fat_loss">Fat Loss</SelectItem>
-                      <SelectItem value="maintenance">Maintenance</SelectItem>
-                      <SelectItem value="body_recomposition">Body Recomposition</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <form className="space-y-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Meal Timings</label>
+                    <Label htmlFor="cuisine">Preferred Cuisine</Label>
+                    <Input
+                      id="cuisine"
+                      type="text"
+                      value={cuisine}
+                      onChange={e => setCuisine(e.target.value)}
+                      placeholder="e.g., Italian, Indian"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="allergies">Allergies</Label>
+                    <Input
+                      id="allergies"
+                      type="text"
+                      value={allergies}
+                      onChange={e => setAllergies(e.target.value)}
+                      placeholder="comma separated"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="age">Age</Label>
+                    <Input
+                      id="age"
+                      type="number"
+                      value={age}
+                      onChange={e => setAge(e.target.value)}
+                      placeholder="25"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Gender</Label>
+                    <Select value={gender} onValueChange={setGender}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Gender" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="male">Male</SelectItem>
+                        <SelectItem value="female">Female</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="height">Height (cm)</Label>
+                    <Input
+                      id="height"
+                      type="number"
+                      value={height}
+                      onChange={e => setHeight(e.target.value)}
+                      placeholder="170"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="weight">Weight (kg)</Label>
+                    <Input
+                      id="weight"
+                      type="number"
+                      value={weight}
+                      onChange={e => setWeight(e.target.value)}
+                      placeholder="70"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="calories">Target Calories</Label>
+                    <Input
+                      id="calories"
+                      type="number"
+                      value={calories}
+                      onChange={e => setCalories(e.target.value)}
+                      placeholder="2000"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Diet Type</Label>
+                    <Select value={dietType} onValueChange={setDietType}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Diet Type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="veg">Vegetarian</SelectItem>
+                        <SelectItem value="non-veg">Non-Vegetarian</SelectItem>
+                        <SelectItem value="vegan">Vegan</SelectItem>
+                        <SelectItem value="eggs_only">Vegetarian with Eggs</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Goal</Label>
+                    <Select value={goal} onValueChange={setGoal}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Goal" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="muscle_gain">Muscle Gain</SelectItem>
+                        <SelectItem value="fat_loss">Fat Loss</SelectItem>
+                        <SelectItem value="maintenance">Maintenance</SelectItem>
+                        <SelectItem value="body_recomposition">Body Recomposition</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Meal Timings</Label>
                     <div className="flex flex-wrap gap-4">
                       {[
                         { value: "breakfast", label: "Breakfast" },
