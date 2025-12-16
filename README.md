@@ -1,4 +1,4 @@
-# Fitnest - Holistic Health Buddy
+# Fitnest
 
 A comprehensive health and wellness application built with Next.js, featuring user authentication, BMI calculator, BMR calculator, nutrition tracking, mental health resources, and yoga poses integration.
 
