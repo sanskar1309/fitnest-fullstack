@@ -9,6 +9,7 @@ import { Activity, Lock, Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { supabase } from '../../lib/supabase';
 import { toast } from '../../src/hooks/use-toast';
+import { validatePassword, isCommonPassword } from '../../src/utils/passwordValidation';
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -18,6 +19,10 @@ export default function ResetPassword() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isValidSession, setIsValidSession] = useState(false);
+  // Password validation state
+  const [passwordStrength, setPasswordStrength] = useState({ label: '', color: '' });
+  const [passwordHint, setPasswordHint] = useState('');
+  const [passwordHintColor, setPasswordHintColor] = useState('');
 
   useEffect(() => {
     // Check if we have a valid session for password reset
@@ -40,6 +45,20 @@ export default function ResetPassword() {
     checkSession();
   }, [router]);
 
+  // Update password validation feedback when password changes
+  useEffect(() => {
+    if (password) {
+      const validation = validatePassword(password);
+      setPasswordStrength({ label: validation.strength.label, color: validation.strength.color });
+      setPasswordHint(validation.hint);
+      setPasswordHintColor(validation.hintColor);
+    } else {
+      setPasswordStrength({ label: '', color: '' });
+      setPasswordHint('');
+      setPasswordHintColor('');
+    }
+  }, [password]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -61,10 +80,19 @@ export default function ResetPassword() {
       return;
     }
 
-    if (password.length < 6) {
+    if (isCommonPassword(password)) {
+      toast({
+        title: 'Password Too Common',
+        description: 'This password is too common. Please choose a different one.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (password.length < 12) {
       toast({
         title: 'Password Too Short',
-        description: 'Password must be at least 6 characters long.',
+        description: 'Password must be at least 12 characters long.',
         variant: 'destructive',
       });
       return;
@@ -143,7 +171,9 @@ export default function ResetPassword() {
           <CardContent className="space-y-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="password">New Password</Label>
+                <Label htmlFor="password">
+                  New Password <span className="text-muted-foreground text-xs">(min. 12 characters)</span>
+                </Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <Input
@@ -154,7 +184,7 @@ export default function ResetPassword() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="pl-10 pr-10"
                     required
-                    minLength={6}
+                    minLength={12}
                   />
                   <Button
                     type="button"
@@ -170,6 +200,26 @@ export default function ResetPassword() {
                     )}
                   </Button>
                 </div>
+                {password && (
+                  <div className="space-y-1" aria-live="polite">
+                    {passwordStrength.label && (
+                      <p
+                        className="text-xs font-medium"
+                        style={{ color: passwordStrength.color }}
+                      >
+                        Strength: {passwordStrength.label}
+                      </p>
+                    )}
+                    {passwordHint && (
+                      <p
+                        className="text-xs"
+                        style={{ color: passwordHintColor }}
+                      >
+                        {passwordHint}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -184,7 +234,7 @@ export default function ResetPassword() {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     className="pl-10 pr-10"
                     required
-                    minLength={6}
+                    minLength={12}
                   />
                   <Button
                     type="button"

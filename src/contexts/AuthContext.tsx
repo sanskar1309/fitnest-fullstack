@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 import { User, Session, AuthError, AuthChangeEvent } from '@supabase/supabase-js';
 import { supabase } from '../../lib/supabase';
 import { useRouter } from 'next/router';
+import { isPasswordValid, isCommonPassword } from '../utils/passwordValidation';
 
 interface AuthContextType {
   user: User | null;
@@ -32,6 +33,18 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  // Get the site URL from environment variable or fallback to current origin
+  // This ensures production emails use the production URL instead of localhost
+  const getSiteUrl = () => {
+    if (process.env.NEXT_PUBLIC_SITE_URL) {
+      return process.env.NEXT_PUBLIC_SITE_URL;
+    }
+    if (typeof window !== 'undefined') {
+      return window.location.origin;
+    }
+    return 'http://localhost:3000';
+  };
 
   useEffect(() => {
     // Get initial session
@@ -92,11 +105,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         };
       }
 
-      if (trimmedPassword.length < 6) {
+      // Check for common passwords
+      if (isCommonPassword(trimmedPassword)) {
         return {
           data: null,
           error: {
-            message: 'Password must be at least 6 characters long.',
+            message: 'This password is too common. Please choose a different one.',
+          } as any,
+        };
+      }
+
+      // Validate minimum password length (12 characters as per Supabase recommendation)
+      if (!isPasswordValid(trimmedPassword)) {
+        return {
+          data: null,
+          error: {
+            message: 'Password must be at least 12 characters long.',
           } as any,
         };
       }
@@ -148,7 +172,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           data: {
             name: trimmedName,
           },
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${getSiteUrl()}/auth/callback`,
         },
       });
 
@@ -177,7 +201,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         };
       }
 
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email: trimmedEmail,
         password: trimmedPassword,
       });
@@ -222,7 +246,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       }
 
       const { error } = await supabase.auth.resetPasswordForEmail(trimmedEmail, {
-        redirectTo: `${window.location.origin}/auth/reset-password`,
+        redirectTo: `${getSiteUrl()}/auth/reset-password`,
       });
 
       return { error };

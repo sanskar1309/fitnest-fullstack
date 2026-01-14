@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import { Activity, Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from "../src/contexts/AuthContext";
 import { toast } from "../src/hooks/use-toast";
+import { validatePassword, isCommonPassword } from "../src/utils/passwordValidation";
 
 export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) {
   const router = useRouter();
@@ -23,11 +23,50 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
   const [isLoading, setIsLoading] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetEmail, setResetEmail] = useState("");
+  // Password validation state
+  const [passwordStrength, setPasswordStrength] = useState({ label: "", color: "" });
+  const [passwordHint, setPasswordHint] = useState("");
+  const [passwordHintColor, setPasswordHintColor] = useState("");
 
   const isLogin = mode === "login";
 
+  // Update password validation feedback when password changes
+  useEffect(() => {
+    if (!isLogin && password) {
+      const validation = validatePassword(password);
+      setPasswordStrength({ label: validation.strength.label, color: validation.strength.color });
+      setPasswordHint(validation.hint);
+      setPasswordHintColor(validation.hintColor);
+    } else {
+      setPasswordStrength({ label: "", color: "" });
+      setPasswordHint("");
+      setPasswordHintColor("");
+    }
+  }, [password, isLogin]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Additional client-side validation for signup
+    if (!isLogin) {
+      if (isCommonPassword(password)) {
+        toast({
+          title: "Password Too Common",
+          description: "This password is too common. Please choose a different one.",
+          variant: "destructive",
+        });
+        return;
+      }
+      if (password.length < 12) {
+        toast({
+          title: "Password Too Short",
+          description: "Password must be at least 12 characters long.",
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
     setIsLoading(true);
 
     try {
@@ -152,7 +191,9 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">
+                  Password {!isLogin && <span className="text-muted-foreground text-xs">(min. 12 characters)</span>}
+                </Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <Input
@@ -178,6 +219,26 @@ export default function Auth({ mode: propMode }: { mode?: 'login' | 'signup' }) 
                     )}
                   </Button>
                 </div>
+                {!isLogin && password && (
+                  <div className="space-y-1" aria-live="polite">
+                    {passwordStrength.label && (
+                      <p
+                        className="text-xs font-medium"
+                        style={{ color: passwordStrength.color }}
+                      >
+                        Strength: {passwordStrength.label}
+                      </p>
+                    )}
+                    {passwordHint && (
+                      <p
+                        className="text-xs"
+                        style={{ color: passwordHintColor }}
+                      >
+                        {passwordHint}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
 
               {isLogin && (
