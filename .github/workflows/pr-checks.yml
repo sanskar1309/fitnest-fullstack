@@ -1,0 +1,32 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    name: Validate PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check for .env files accidentally committed
+        run: |
+          if git diff --name-only origin/main...HEAD | grep -E '^\.env(\.local|\.production)?$'; then
+            echo "ERROR: .env file detected in PR. Remove it before merging."
+            exit 1
+          fi
