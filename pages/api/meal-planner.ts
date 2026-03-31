@@ -6,9 +6,9 @@ const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
 // List of free-tier models to try in order
 const MODELS = [
   //free-tier models
-  "mistralai/mistral-7b-instruct:free",
+  // "mistralai/mistral-7b-instruct:free",
   "z-ai/glm-4.5-air:free",
-  "deepseek/deepseek-r1:free",
+  // "deepseek/deepseek-r1:free",
   // paid models (as fallback)
   // "openai/gpt-4o",
   // "openai/gpt-3.5-turbo",
