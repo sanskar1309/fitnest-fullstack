@@ -97,7 +97,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           body: JSON.stringify({
             model,
             messages: [{ role: "user", content: prompt }],
-            max_tokens: 2000,
+            max_tokens: 8000,
           }),
         });
 
@@ -114,7 +114,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         // Extract the content from the response
-        const content = responseData.choices?.[0]?.message?.content;
+        const choice = responseData.choices?.[0];
+
+        // Skip if the model ran out of tokens (common with reasoning models)
+        if (choice?.finish_reason === "length") {
+          lastError = { message: "Model hit token limit before producing output", details: responseData };
+          continue;
+        }
+
+        // For reasoning models, content may be null while reasoning is in message.reasoning
+        const content = choice?.message?.content || choice?.message?.reasoning;
         if (!content) {
           lastError = { message: "No content in response", details: responseData };
           continue;
