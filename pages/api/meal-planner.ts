@@ -7,6 +7,7 @@ const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
 const MODELS = [
   //free-tier models
   // "mistralai/mistral-7b-instruct:free",
+  "nvidia/nemotron-3-super-120b-a12b:free",
   "z-ai/glm-4.5-air:free",
   // "deepseek/deepseek-r1:free",
   // paid models (as fallback)
