@@ -163,6 +163,25 @@ async function migrateData() {
     if (moodsError) throw moodsError;
     console.log('Moods data inserted');
 
+    // Ensure RLS policies exist for public read access
+    await supabase.rpc('exec_sql', {
+      sql: `
+        DO $$ BEGIN
+          IF NOT EXISTS (
+            SELECT 1 FROM pg_policies WHERE tablename = 'transitive_poses' AND policyname = 'Allow public read on transitive_poses'
+          ) THEN
+            CREATE POLICY "Allow public read on transitive_poses" ON public.transitive_poses FOR SELECT TO public USING (true);
+          END IF;
+          IF NOT EXISTS (
+            SELECT 1 FROM pg_policies WHERE tablename = 'poses' AND policyname = 'Allow public read on poses'
+          ) THEN
+            CREATE POLICY "Allow public read on poses" ON public.poses FOR SELECT TO public USING (true);
+          END IF;
+        END $$;
+      `
+    }).throwOnError();
+    console.log('RLS policies ensured');
+
     console.log('Migration completed successfully!');
   } catch (error) {
     console.error('Migration failed:', error);
