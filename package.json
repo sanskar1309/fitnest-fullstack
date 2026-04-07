@@ -9,7 +9,7 @@
     "start": "next start -p 3009",
     "lint": "eslint .",
     "migrate": "npx tsx lib/migrate.ts",
-    "postbuild": "npm run migrate"
+    "seed": "npx tsx lib/migrate.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
