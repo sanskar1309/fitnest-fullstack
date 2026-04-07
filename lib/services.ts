@@ -31,18 +31,7 @@ interface Category {
   category_name: string
   category_description?: string
   poses?: Pose[]
-  transitive_poses?: TransitivePose[]
-}
-
-interface TransitivePose {
-  poses: Pose
-  difficulty?: {
-    difficulty_level: string
-  }
-}
-
-interface CategoryWithTransitive extends Category {
-  transitive_poses: TransitivePose[]
+  transitive_poses?: any[]
 }
 
 interface MeditationCategory {
@@ -81,91 +70,118 @@ export async function getBaseURL() {
 }
 
 export async function getCategories(): Promise<Category[]> {
-  const { data, error } = await supabase
-    .from('categories')
-    .select(`
-      *,
-      transitive_poses (
-        poses (
-          id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt
-        )
-      )
-    `)
+  const [{ data: categories, error: catError }, { data: transitivePoses, error: tpError }, { data: poses, error: posesError }] = await Promise.all([
+    supabase.from('categories').select('*').order('id', { ascending: true }),
+    supabase.from('transitive_poses').select('category_id, pose_id'),
+    supabase.from('poses').select('id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt'),
+  ])
 
-  if (error) throw error
+  if (catError) throw catError
+  if (tpError) throw tpError
+  if (posesError) throw posesError
 
-  // Flatten the poses
-  return (data as CategoryWithTransitive[])?.map((category: CategoryWithTransitive) => ({
+  const posesMap = new Map<number, Pose>((poses as Pose[]).map(p => [p.id, p]))
+
+  return (categories as Category[]).map(category => ({
     ...category,
-    poses: category.transitive_poses?.map((tp: TransitivePose) => tp.poses) || [],
+    poses: (transitivePoses as any[])
+      .filter(tp => tp.category_id === category.id)
+      .map(tp => posesMap.get(tp.pose_id))
+      .filter(Boolean) as Pose[],
     transitive_poses: []
-  })) || []
+  }))
 }
 
-export async function getCategoriesByParams(params: { id?: number; name?: string; level?: string }): Promise<Category | null> {
+export async function getCategoriesByParams(params: { id?: string | number; name?: string; level?: string }): Promise<Category | null> {
   const { id, name, level } = params
 
   if (level) {
     return getCategoriesByLevel(id, level)
   }
 
-  let query = supabase
-    .from('categories')
-    .select(`
-      *,
-      transitive_poses (
-        poses (
-          id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt
-        )
-      )
-    `)
-
+  let query = supabase.from('categories').select('*')
   if (id) query = query.eq('id', id)
   if (name) query = query.ilike('category_name', name)
 
-  const { data, error } = await query
+  const { data: categories, error: catError } = await query
+  if (catError) throw catError
+  if (!categories || categories.length === 0) return null
 
-  if (error) throw error
+  const category = categories[0] as Category
 
-  if (!data || data.length === 0) return null
+  const [{ data: transitivePoses, error: tpError }, { data: poses, error: posesError }] = await Promise.all([
+    supabase.from('transitive_poses').select('pose_id').eq('category_id', category.id),
+    supabase.from('poses').select('id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt'),
+  ])
 
-  // Return the first match, flattened
-  const category = data[0] as CategoryWithTransitive
+  if (tpError) throw tpError
+  if (posesError) throw posesError
+
+  const poseIds = new Set((transitivePoses as any[]).map(tp => tp.pose_id))
+  const filteredPoses = (poses as Pose[]).filter(p => poseIds.has(p.id))
+
   return {
     ...category,
-    poses: category.transitive_poses?.map((tp: TransitivePose) => tp.poses) || [],
+    poses: filteredPoses,
     transitive_poses: []
   }
 }
 
-export async function getCategoriesByLevel(id?: number, level?: string): Promise<Category | null> {
-  const { data, error } = await supabase
+export async function getCategoriesByLevel(id?: string | number, level?: string): Promise<Category | null> {
+  const { data: categories, error: catError } = await supabase
     .from('categories')
-    .select(`
-      *,
-      transitive_poses!inner (
-        difficulty (
-          difficulty_level
-        ),
-        poses (
-          id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt
-        )
-      )
-    `)
+    .select('*')
     .eq('id', id)
-    .eq('transitive_poses.difficulty.difficulty_level', level)
 
-  if (error) throw error
+  if (catError) throw catError
+  if (!categories || categories.length === 0) return null
 
-  if (!data || data.length === 0) return null
+  const category = categories[0] as Category
 
-  const category = data[0] as any
+  const { data: transitivePoses, error: tpError } = await supabase
+    .from('transitive_poses')
+    .select('pose_id, difficulty_id')
+    .eq('category_id', category.id)
+
+  if (tpError) throw tpError
+
+  const poseIds = (transitivePoses as any[]).map(tp => tp.pose_id)
+
+  if (poseIds.length === 0) return { ...category, poses: [], transitive_poses: [] }
+
+  let posesQuery = supabase
+    .from('poses')
+    .select('id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt')
+    .in('id', poseIds)
+
+  if (level) {
+    const { data: difficultyData } = await supabase
+      .from('difficulty')
+      .select('id')
+      .eq('difficulty_level', level)
+      .single()
+
+    if (difficultyData) {
+      const filteredPoseIds = (transitivePoses as any[])
+        .filter(tp => tp.difficulty_id === (difficultyData as any).id)
+        .map(tp => tp.pose_id)
+
+      if (filteredPoseIds.length === 0) return { ...category, poses: [], transitive_poses: [] }
+
+      posesQuery = supabase
+        .from('poses')
+        .select('id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt')
+        .in('id', filteredPoseIds)
+    }
+  }
+
+  const { data: poses, error: posesError } = await posesQuery
+  if (posesError) throw posesError
+
   return {
     ...category,
-    poses: category.transitive_poses?.map((tp: any) => ({
-      ...tp.poses,
-      difficulty_level: tp.difficulty.difficulty_level
-    })) || []
+    poses: (poses as Pose[]) || [],
+    transitive_poses: []
   }
 }
 
@@ -186,41 +202,45 @@ export async function getPosesByParams(params: { id?: number; name?: string; lev
     return getPosesByLevel(level)
   }
 
-  let query = supabase
-    .from('poses')
-    .select('*')
-
+  let query = supabase.from('poses').select('*')
   if (id) query = query.eq('id', id)
   if (name) query = query.ilike('english_name', name)
 
   const { data, error } = await query
-
   if (error) throw error
-
   if (!data || data.length === 0) return null
 
   return data[0] as Pose
 }
 
 export async function getPosesByLevel(level: string): Promise<Pose[]> {
-  const { data, error } = await supabase
+  const { data: difficultyData, error: diffError } = await supabase
+    .from('difficulty')
+    .select('id')
+    .eq('difficulty_level', level)
+    .single()
+
+  if (diffError) throw diffError
+  if (!difficultyData) return []
+
+  const { data: transitivePoses, error: tpError } = await supabase
+    .from('transitive_poses')
+    .select('pose_id')
+    .eq('difficulty_id', (difficultyData as any).id)
+
+  if (tpError) throw tpError
+  if (!transitivePoses || transitivePoses.length === 0) return []
+
+  const poseIds = (transitivePoses as any[]).map(tp => tp.pose_id)
+
+  const { data: poses, error: posesError } = await supabase
     .from('poses')
-    .select(`
-      *,
-      transitive_poses!inner (
-        difficulty (
-          difficulty_level
-        )
-      )
-    `)
-    .eq('transitive_poses.difficulty.difficulty_level', level)
+    .select('*')
+    .in('id', poseIds)
 
-  if (error) throw error
+  if (posesError) throw posesError
 
-  return (data as any[])?.map((pose: any) => ({
-    ...pose,
-    difficulty_level: pose.transitive_poses[0]?.difficulty.difficulty_level
-  })) || []
+  return (poses as Pose[]) || []
 }
 
 export async function getMeditation(): Promise<MeditationCategory[]> {
