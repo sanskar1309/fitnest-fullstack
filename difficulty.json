@@ -1,0 +1,5 @@
+[
+  { "id": 1, "difficulty_level": "beginner" },
+  { "id": 2, "difficulty_level": "intermediate" },
+  { "id": 3, "difficulty_level": "expert" }
+]

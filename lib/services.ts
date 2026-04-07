@@ -86,7 +86,7 @@ export async function getCategories(): Promise<Category[]> {
     .select(`
       *,
       transitive_poses (
-        poses!pose_id (
+        poses (
           id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt
         )
       )
@@ -114,7 +114,7 @@ export async function getCategoriesByParams(params: { id?: number; name?: string
     .select(`
       *,
       transitive_poses (
-        poses!pose_id (
+        poses (
           id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt
         )
       )
@@ -144,10 +144,10 @@ export async function getCategoriesByLevel(id?: number, level?: string): Promise
     .select(`
       *,
       transitive_poses!inner (
-        difficulty!difficulty_id (
+        difficulty (
           difficulty_level
         ),
-        poses!pose_id (
+        poses (
           id, english_name, sanskrit_name_adapted, sanskrit_name, translation_name, pose_description, pose_benefits, url_svg, url_png, url_svg_alt
         )
       )
@@ -208,7 +208,7 @@ export async function getPosesByLevel(level: string): Promise<Pose[]> {
     .select(`
       *,
       transitive_poses!inner (
-        difficulty!difficulty_id (
+        difficulty (
           difficulty_level
         )
       )
